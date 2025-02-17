@@ -1,0 +1,250 @@
+{{>partials/header}}
+
+<div class="form">
+    <form action="/etapa33" method="POST">
+        <h4>Dados Clínicos</h4>
+
+        <div class="input-group">
+            <div class="input-box">
+                <label for="osteoporose">Osteoporose</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="osteoporoseSim" name="osteoporose" value="sim">
+                    <label class="form-check-label" for="osteoporoseSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="osteoporoseNao" name="osteoporose" value="nao">
+                    <label class="form-check-label" for="osteoporoseNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="renal">Renal</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="renalSim" name="renal" value="sim">
+                    <label class="form-check-label" for="renalSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="renalNao" name="renal" value="nao">
+                    <label class="form-check-label" for="renalNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="epilepsia">Epilepsia</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="epilepsiaSim" name="epilepsia" value="sim">
+                    <label class="form-check-label" for="epilepsiaSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="epilepsiaNao" name="epilepsia" value="nao">
+                    <label class="form-check-label" for="epilepsiaNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="quimioRadio">Quimioterapia/Radioterapia</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="quimioRadioSim" name="quimioRadio" value="sim">
+                    <label class="form-check-label" for="quimioRadioSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="quimioRadioNao" name="quimioRadio" value="nao">
+                    <label class="form-check-label" for="quimioRadioNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="hipotiroidismo">Hipotireoidismo</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="hipotiroidismoSim" name="hipotiroidismo" value="sim">
+                    <label class="form-check-label" for="hipotiroidismoSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="hipotiroidismoNao" name="hipotiroidismo" value="nao">
+                    <label class="form-check-label" for="hipotiroidismoNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="hepatite">Hepatite</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="hepatiteSim" name="hepatite" value="sim">
+                    <label class="form-check-label" for="hepatiteSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="hepatiteNao" name="hepatite" value="nao">
+                    <label class="form-check-label" for="hepatiteNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="onco">Antecedente Oncológico</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="oncoSim" name="onco" value="sim">
+                    <label class="form-check-label" for="oncoSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="oncoNao" name="onco" value="nao">
+                    <label class="form-check-label" for="oncoNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="cardiopatia">Cardiopatia</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="cardiopatiaSim" name="cardiopatia" value="sim">
+                    <label class="form-check-label" for="cardiopatiaSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="cardiopatiaNao" name="cardiopatia" value="nao">
+                    <label class="form-check-label" for="cardiopatiaNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="hipertensao">Hipertensão</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="hipertensaoSim" name="hipertensao" value="sim">
+                    <label class="form-check-label" for="hipertensaoSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="hipertensaoNao" name="hipertensao" value="nao">
+                    <label class="form-check-label" for="hipertensaoNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="reumatismo">Reumatismo</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="reumatismoSim" name="reumatismo" value="sim">
+                    <label class="form-check-label" for="reumatismoSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="reumatismoNao" name="reumatismo" value="nao">
+                    <label class="form-check-label" for="reumatismoNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="hanseniase">Hanseníase</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="hanseniaseSim" name="hanseniase" value="sim">
+                    <label class="form-check-label" for="hanseniaseSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="hanseniaseNao" name="hanseniase" value="nao">
+                    <label class="form-check-label" for="hanseniaseNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="cirurgiaMMII">Cirurgia MMII</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="cirurgiaMMIISim" name="cirurgiaMMII" value="sim">
+                    <label class="form-check-label" for="cirurgiaMMIISim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="cirurgiaMMIINao" name="cirurgiaMMII" value="nao">
+                    <label class="form-check-label" for="cirurgiaMMIINao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="marcaPasso">Marca-passo</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="marcaPassoSim" name="marcaPasso" value="sim">
+                    <label class="form-check-label" for="marcaPassoSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="marcaPassoNao" name="marcaPasso" value="nao">
+                    <label class="form-check-label" for="marcaPassoNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="vascular">Alterações ou comprometimento vascular</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="vascularSim" name="vascular" value="sim">
+                    <label class="form-check-label" for="vascularSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="vascularNao" name="vascular" value="nao">
+                    <label class="form-check-label" for="vascularNao">Não</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Segunda parte -->
+        <div class="input-group">
+            <div class="input-box">
+                <label for="hipotensao">Hipotensão:</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="hipotensaoSim" name="hipotensao" value="sim">
+                    <label class="form-check-label" for="hipotensaoSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="hipotensaoNao" name="hipotensao" value="nao">
+                    <label class="form-check-label" for="hipotensaoNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="insulina">Insulina:</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="insulinaSim" name="insulina" value="sim">
+                    <label class="form-check-label" for="insulinaSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="insulinaNao" name="insulina" value="nao">
+                    <label class="form-check-label" for="insulinaNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="dietaHidrica">Dieta Hídrica:</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="dietaHidricaSim" name="dietaHidrica" value="sim">
+                    <label class="form-check-label" for="dietaHidricaSim">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="dietaHidricaNao" name="dietaHidrica" value="nao">
+                    <label class="form-check-label" for="dietaHidricaNao">Não</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="injetavel">Injetável:</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="injetavel" name="injetavel">
+                    <label class="form-check-label" for="injetavel">Injetável</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="dietaAlimentar">Dieta Alimentar:</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="dietaAlimentar" name="dietaAlimentar">
+                    <label class="form-check-label" for="dietaAlimentar">Dieta Alimentar</label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="viaOral">Via Oral:</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="viaOral" name="viaOral">
+                    <label class="form-check-label" for="viaOral">Via Oral</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Taxa glicêmica -->
+        <div class="input-box">
+            <label for="taxaGlicemica">Taxa Glicêmica (mg/dL):</label>
+            <input type="number" class="form-control w-50" id="taxaGlicemica" name="taxaGlicemica" placeholder="Ex: 100" aria-label="Taxa Glicêmica" min="0" step="1">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Próximo</button>
+    </form>
+</div>
+
+{{>partials/footer}}

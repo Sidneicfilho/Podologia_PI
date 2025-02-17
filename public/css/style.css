@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Changa:wght@200..800&family=Dancing+Script:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lobster&display=swap');
+*{
+    margin: 0px;
+    padding: 0px; 
+}
+body{
+    font-family: "Exo 2", sans-serif;
+}
+header{
+    background-image: url('images/senacAmpliada_LE_ml_resize_x4\ -\ Copia.jpg');
+    background-repeat: no-repeat;
+    
+}
+
+
+.container{
+    display: flex;
+}
+.logo img{
+    width: 30%;
+}
+.titulo{
+    margin-top: 20px;
+    text-align: center;
+    color: rgb(0, 204, 255);
+    box-shadow: 5px;
+}
+p{
+    text-align: center;
+    font-size: 180%;
+}
+
+
+/* DADOS PESSOAIS */
+.form{
+    margin: 30px 40px 20px 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    border-color:linear-gradient(339deg, rgba(222,176,5,1) 15%, rgba(0,55,170,1) 45%);
+}
+
+.form h4 {
+margin-bottom: 20px;
+text-align: center;
+color: white;
+background: rgb(222,176,5);
+background: linear-gradient(339deg, rgba(222,176,5,1) 15%, rgba(0,55,170,1) 45%);
+padding: 5px;
+border-bottom: 2px solid black;
+}
+
+.input-group {
+display: flex;
+flex-wrap: wrap;
+gap: 15px;
+}
+
+.input-box {
+display: flex;
+flex-direction: column;
+flex: 1;
+min-width: 25%; /* Mantém dois campos lado a lado */
+}
+
+.input-box label {
+font-size: 16px;
+color: #333;
+margin-bottom: 5px;
+}
+
+.input-box input {
+padding: 8px;
+border-radius: 4px;
+border: 1px solid #9b9b9b;
+border-color: blue;
+font-size: 14px;
+
+}
+
+.input-box input[type="date"] {
+font-family: Arial, sans-serif; /* Para manter a aparência do campo de data */
+}
+
+/* Estilos dos inputs de gênero */
+.gender-input {
+display: inline-flex;
+align-items: center;
+gap: 5px;
+margin-top: 10px;
+}
+
+.gender-input label {
+font-size: 14px;
+color: #333;
+}
+
+.btn-send{
+    display: flex;
+}
+.btn-send{
+    margin-left:20px;
+    border-radius: 5px;
+}
+.btn-send a{
+    text-decoration: none;
+    color: black;
+}
+
+.btn-back{
+    margin-left:20px;
+    border-radius: 5px;
+}
+.btn-back a{
+ text-decoration: none;
+    color: black
+}
+
+
+
+
+
+
+
+
+
+/*DADOS GERAIS*/
+    
+.input-box {
+    margin-bottom: 20px;
+}
+
+/* Agrupa os elementos dentro de input-box em uma linha */
+.input-box .gender-input {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre os itens */
+    flex-wrap: wrap; /* Permite quebrar linha se necessário */
+}
+
+/* Define o estilo geral dos rótulos e campos */
+.input-box label {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Ajuste para os campos de texto */
+.input-box input[type="text"],
+.input-box input[type="date"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Define largura para alinhar inputs com labels */
+.input-box input[type="text"] {
+    flex: 1; /* Permite ajustar automaticamente o tamanho */
+    min-width: 200px; /* Largura mínima */
+}
+
+/* Organiza botões de rádio */
+.input-box input[type="radio"] {
+    margin-left: 5px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    .gender-input {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Customização do checkbox */
+
+
+.form-check-input + .form-check-label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000; /* Cor do texto */
+}
+
+.form-check-input + .form-check-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc; /* Cor da bolinha (ajuste conforme necessário) */
+    transition: background-color 0.3s ease;
+}
+
+/* Quando o checkbox está marcado */
+.form-check-input:checked + .form-check-label::before {
+    background-color: #4CAF50; /* Cor da bolinha quando marcado (ajuste conforme necessário) */
+}
+
+/* Quando o checkbox está em foco (hover) */
+.form-check-input:focus + .form-check-label::before {
+    background-color: #f0ad4e; /* Cor da bolinha quando em foco (ajuste conforme necessário) */
+}
+
+/* Quando o checkbox está desmarcado e em hover */
+.form-check-input:not(:checked):hover + .form-check-label::before {
+    background-color: #f0ad4e; /* Cor ao passar o mouse sobre a bolinha desmarcada */
+}
+
+
+.hover-bg-light:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+.form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}

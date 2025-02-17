@@ -1,0 +1,50 @@
+{{>partials/header}}
+
+<h2>Etapa 7: Resumo</h2>
+
+<!-- Resumo dos dados preenchidos nas etapas anteriores -->
+<div id="resumo">
+  <!-- O conteúdo será injetado dinamicamente pelo JavaScript -->
+</div>
+
+<form action="/submit" method="POST">
+  <button type="submit">Enviar</button>
+</form>
+
+<script>
+  function showResumo() {
+    // Lista de campos para recuperar do sessionStorage
+    const campos = [
+      'nome', 'email', 'endereco', 'bairro', 'cidade', 'estado', 'cep',
+      'tel_res', 'telefone', 'tel_emergencia', 'contato',
+      'data_nascimento', 'profissao', 'sexo'
+    ];
+
+    // Monta o resumo em HTML dinamicamente
+    let resumoHtml = "<h3>Dados Pessoais</h3>"; // Adiciona um título ao resumo
+
+    campos.forEach(campo => {
+      const valor = sessionStorage.getItem(campo) || "Não informado"; // Usando sessionStorage
+      const label = {
+        nome: "Nome", email: "E-mail", endereco: "Endereço", bairro: "Bairro",
+        cidade: "Cidade", estado: "Estado", cep: "CEP",
+        tel_res: "Telefone Residencial", telefone: "Telefone",
+        tel_emergencia: "Telefone de Emergência", contato: "Contato",
+        data_nascimento: "Data de Nascimento", profissao: "Profissão", sexo: "Sexo"
+      }[campo];
+
+      resumoHtml += `<p><strong>${label}:</strong> ${valor}</p>`;
+    });
+
+    // Insere o resumo na página
+    const resumoDiv = document.getElementById('resumo');
+    if (resumoDiv) {
+      resumoDiv.innerHTML = resumoHtml;
+    }
+  }
+
+  // Chama a função ao carregar a página
+  document.addEventListener('DOMContentLoaded', showResumo);
+</script>
+
+{{>partials/footer}}

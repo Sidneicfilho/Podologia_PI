@@ -1,0 +1,147 @@
+{{>partials/header}}
+ 
+<div class="form">
+    <form action="/etapa6" id="form_etapa6" method="POST">
+
+     <input type="hidden" id="id_cliente" name="id_cliente" value="{{id_cliente}}">
+        <h4>Alterações e Lesões</h4>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault1" name="bromidrose">
+                    <label class="form-check-label" for="flexCheckDefault1">Bromidrose</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault2" name="hidrose">
+                    <label class="form-check-label" for="flexCheckDefault2">Hidrose</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault3" name="desidrose">
+                    <label class="form-check-label" for="flexCheckDefault3">Desidrose</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault4" name="isquemia">
+                    <label class="form-check-label" for="flexCheckDefault4">Isquemia</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault5" name="mal_perfurante">
+                    <label class="form-check-label" for="flexCheckDefault5">Mal Perfurante</label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault6" name="edema">
+                    <label class="form-check-label" for="flexCheckDefault6">Edema</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault7" name="tinea">
+                    <label class="form-check-label" for="flexCheckDefault7">Tínea</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault8" name="psoriase">
+                    <label class="form-check-label" for="flexCheckDefault8">Psoríase</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault9" name="tungíase">
+                    <label class="form-check-label" for="flexCheckDefault9">Tungíase</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault10" name="verruga_plantar">
+                    <label class="form-check-label" for="flexCheckDefault10">Verruga Plantar</label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault11" name="calo_dorsal">
+                    <label class="form-check-label" for="flexCheckDefault11">Calo Dorsal</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault12" name="querotose">
+                    <label class="form-check-label" for="flexCheckDefault12">Querotose</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault13" name="calo_plantar">
+                    <label class="form-check-label" for="flexCheckDefault13">Calo Plantar</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault14" name="hiperqueratose">
+                    <label class="form-check-label" for="flexCheckDefault14">Hiperqueratose</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault15" name="calo_interdigital">
+                    <label class="form-check-label" for="flexCheckDefault15">Calo Interdigital</label>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="titulo2 text-center">
+            <h2>Perfusão</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h3>PD</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="normal" id="flexCheckDefault16" name="perfusao_PD">
+                    <label class="form-check-label" for="flexCheckDefault16">Normal</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="palido" id="flexCheckDefault17" name="perfusao_PD">
+                    <label class="form-check-label" for="flexCheckDefault17">Pálido</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="cianotico" id="flexCheckDefault18" name="perfusao_PD">
+                    <label class="form-check-label" for="flexCheckDefault18">Cianótico</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>PE</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="normal" id="flexCheckDefault19" name="perfusao_PE">
+                    <label class="form-check-label" for="flexCheckDefault19">Normal</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="palido" id="flexCheckDefault20" name="perfusao_PE">
+                    <label class="form-check-label" for="flexCheckDefault20">Pálido</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="cianotico" id="flexCheckDefault21" name="perfusao_PE">
+                    <label class="form-check-label" for="flexCheckDefault21">Cianótico</label>
+                </div>
+            </div>
+        </div>
+ 
+       <div class="text-center">
+    <h3>Já teve ou apresenta Erisipela?</h3>
+</div>
+<div class="row justify-content-center">
+    <div class="col-auto d-flex align-items-center gap-3">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="teve_erisipela" id="flexRadioDefault1" value="Sim" required>
+            <label class="form-check-label" for="flexRadioDefault1">SIM</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="teve_erisipela" id="flexRadioDefault2" value="Não">
+            <label class="form-check-label" for="flexRadioDefault2">NÃO</label>
+        </div>
+    </div>
+</div>
+ 
+ 
+        <div class="mb-3">
+            <label for="outras_alteracoes_pele" class="form-label">Outras alterações na pele:</label>
+            <textarea class="form-control" name="outras_alteracoes" id="outras_alteracoes" rows="3"></textarea>
+        </div>
+ 
+        <!-- Seção de comentários e observações -->
+        <div class="mb-3">
+            <label for="outros_comentarios" class="form-label">Outros comentários e observações:</label>
+            <textarea class="form-control" name="comentarios" id="outros_comentarios" rows="3"></textarea>
+        </div>
+ 
+        <button type="submit">Próximo</button>
+    </form>
+</div>
+ 
+{{>partials/footer}}
+ 
+ 

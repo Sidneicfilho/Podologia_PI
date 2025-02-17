@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Avaliação Podológica</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2647;
+            --secondary: #144272;
+            --accent: #205295;
+            --highlight: #2C74B3;
+            --light-blue: #e8f4ff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: #1e293b;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            margin: 1rem auto;
+            overflow: hidden;
+        }
+
+        .header-banner {
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="20" fill="%23ffffff10"/><circle cx="80" cy="80" r="30" fill="%23ffffff08"/></svg>');
+            opacity: 0.1;
+        }
+
+        .form-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .form-content {
+            padding: 2.5rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-icon {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            box-shadow: 0 4px 12px rgba(44, 116, 179, 0.15);
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #fff;
+        }
+
+        .form-control:focus {
+            border-color: var(--highlight);
+            box-shadow: 0 0 0 4px rgba(44, 116, 179, 0.1);
+            outline: none;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+        }
+
+        .gender-section {
+            background: linear-gradient(to right, var(--light-blue), #ffffff);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            margin: 2rem 0;
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .radio-option {
+            position: relative;
+            padding: 1rem 1.5rem;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option:hover {
+            border-color: var(--highlight);
+        }
+
+        .radio-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .radio-option input[type="radio"]:checked + label {
+            color: var(--highlight);
+            font-weight: 600;
+        }
+
+        .radio-option input[type="radio"]:checked ~ .check {
+            border-color: var(--highlight);
+        }
+
+        .required::after {
+            content: '*';
+            color: #ef4444;
+            margin-left: 4px;
+        }
+
+        .btn-navigation {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(44, 116, 179, 0.2);
+        }
+
+        .btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44, 116, 179, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 1rem;
+            }
+            
+            .form-container {
+                margin: 0;
+            }
+            
+            .header-banner {
+                padding: 2rem 1.5rem;
+            }
+            
+            .form-content {
+                padding: 1.5rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .gender-options {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        .form-field-info {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+
+        .progress-container {
+            padding: 1.5rem 2.5rem;
+            background-color: #f8fafc;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 25%;
+            background: linear-gradient(to right, var(--accent), var(--highlight));
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    {{>partials/header}}
+
+    <div class="main-container">
+        <div class="form-container">
+            <div class="header-banner">
+                <h1 class="form-title">Sistema de Avaliação Podológica</h1>
+                <p class="form-subtitle">Prontuário Eletrônico do Paciente</p>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-steps">
+                    <span>Dados Pessoais</span>
+                    <span>Anamnese</span>
+                    <span>Avaliação Física</span>
+                    <span>Diagnóstico</span>
+                </div>
+            </div>
+
+            <div class="form-content">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h2 class="section-title">Identificação do Paciente</h2>
+                </div>
+
+                <form action="/dadospessoais" method="POST" class="needs-validation" novalidate>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label class="form-label required" for="nome">Nome Completo</label>
+                            <input class="form-control" id="nome" type="text" name="nome" placeholder="Digite o nome completo do paciente" required>
+                            <div class="form-field-info">Como consta no documento de identificação</div>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="form-label required" for="data_nascimento">Data de Nascimento</label>
+                            <input class="form-control" id="data_nascimento" type="date" name="data_nascimento" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="form-label required" for="email">E-mail</label>
+                            <input class="form-control" id="email" type="email" name="email" placeholder="exemplo@email.com" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="form-label required" for="profissao">Profissão</label>
+                            <input class="form-control" id="profissao" type="text" name="profissao" placeholder="Digite a profissão atual" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label class="form-label required" for="endereco">Endereço</label>
+                            <input class="form-control" id="endereco" type="text" name="endereco" placeholder="Rua, número, complemento" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="form-label required" for="bairro">Bairro</label>
+                            <input class="form-control" id="bairro" type="text" name="bairro" placeholder="Digite o bairro" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="form-label required" for="cidade">Cidade</label>
+                            <input class="form-control" id="cidade" type="text" name="cidade" placeholder="Digite a cidade" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="form-label required" for="estado">Estado</label>
+                            <input class="form-control" id="estado" type="text" name="estado" placeholder="Digite o estado" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label class="form-label" for="tel_res">Telefone Residencial</label>
+                            <input class="form-control" id="tel_res" type="tel" name="tel_res" placeholder="(00) 0000-0000">
+                        </div>
+
+                        <div class="input-group">
+                            <label class="form-label required" for="telefone">Celular</label>
+                            <input class="form-control" id="telefone" type="tel" name="telefone" placeholder="(00) 00000-0000" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="form-label required" for="tel_emergencia">Contato de Emergência</label>
+                            <input class="form-control" id="tel_emergencia" type="tel" name="tel_emergencia" placeholder="(00) 00000-0000" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="form-label required" for="contato">Nome do Contato de Emergência</label>
+                            <input class="form-control" id="contato" type="text" name="contato" placeholder="Digite o nome do contato" required>
+                        </div>
+                    </div>
+
+                    <div class="gender-section">
+                        <label class="form-label required">Sexo</label>
+                        <div class="gender-options">
+                            <div class="radio-option">
+                                <input type="radio" id="feminino" name="sexo" value="Feminino" required>
+                                <label for="feminino">Feminino</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="masculino" name="sexo" value="Masculino">
+                                <label for="masculino">Masculino</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="outro" name="sexo" value="Outro">
+                                <label for="outro">Outro</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btn-navigation">
+                        <button type="submit" class="btn-next">
+                            <span>Próximo</span>
+                            <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2l6 6-6 6"></path></svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

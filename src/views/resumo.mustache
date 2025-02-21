@@ -1,0 +1,272 @@
+{{>partials/header}}
+ 
+ 
+
+<style>
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .page-title {
+            color: rgb(243, 243, 243);
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            background: linear-gradient(339deg, rgb(230, 155, 42) 25%, rgb(1, 75, 139) 45%);
+            border-radius: 8px;
+        }
+
+        .custom-card {
+            height: 100%;
+            transition: transform 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            font-weight: bold;
+            color: white;
+        }
+
+        .card-body {
+            font-size: 14px;
+            overflow-y: auto;
+            max-height: 410px;
+        }
+
+        .card-body p {
+            margin-bottom: 0.5rem;
+        }
+
+        .bg-primary {
+            background-color:rgb(1, 75, 139)!important;
+        }
+
+
+        @media (max-width: 768px) {
+            .col-md-4 {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container form-container">
+        <div class="logo text-center">
+            <img src="images/senac-logo-0-removebg-preview-removebg-preview.png" href="/" alt="">
+        </div>
+
+        <p class="page-title">Resumo da ficha de avaliação</p>
+
+        <div class="row">
+            <!-- Dados Pessoais -->
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-header bg-primary">Dados Pessoais</div>
+                    <div class="card-body">
+                        <p><strong>Nome:</strong> {{formData.nome}}</p>
+                        <p><strong>Endereço:</strong> {{formData.endereco}}</p>
+                        <p><strong>Bairro:</strong> {{formData.bairro}}</p>
+                        <p><strong>Cidade:</strong> {{formData.cidade}}</p>
+                        <p><strong>Estado:</strong> {{formData.estado}}</p>
+                        <p><strong>CEP:</strong> {{formData.cep}}</p>
+                        <p><strong>Telefone Residencial:</strong> {{formData.tel_res}}</p>
+                        <p><strong>Celular:</strong> {{formData.telefone}}</p>
+                        <p><strong>Telefone Emergência:</strong> {{formData.tel_emergencia}}</p>
+                        <p><strong>Contato Adicional:</strong> {{formData.contato}}</p>
+                        <p><strong>Data de Nascimento:</strong> {{formData.data_nascimento}}</p>
+                        <p><strong>Profissão:</strong> {{formData.profissao}}</p>
+                        <p><strong>Email:</strong> {{formData.email}}</p>
+                        <p><strong>Sexo:</strong> {{formData.sexo}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saúde e Hábitos -->
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-header bg-primary">Dados Gerais</div>
+                    <div class="card-body">
+                        <p><strong>Queixa Principal:</strong> {{formData2.queixa_principal}}</p>
+                        <p><strong>Frequenta Podólogo:</strong> {{formData2.frequenta_podologo}}</p>
+                        <p><strong>Frequência ao Podólogo:</strong> {{formData2.frequencia_visita_podologo}}</p>
+                        <p><strong>Uso de Medicamentos:</strong> {{formData2.uso_medicamento}}</p>
+                        <p><strong>Tipo de Medicamento:</strong> {{formData2.tipo_medicamento}}</p>
+                        <p><strong>Alérgico:</strong> {{formData2.alergico}}</p>
+                        <p><strong>Substâncias Alérgicas:</strong> {{formData2.alergia_substancia}}</p>
+                        <p><strong>Posição no Trabalho:</strong> {{formData2.posicao_trabalho}}</p>
+                        <p><strong>Duração do Trabalho:</strong> {{formData2.duracao_trabalho}}</p>
+                        <p><strong>Tempo em Pé:</strong> {{formData2.tempo_em_pe}}</p>
+                        <p><strong>Tempo Sentado:</strong> {{formData2.tempo_sentado}}</p>
+                        <p><strong>Tempo Caminhando:</strong> {{formData2.tempo_caminhando}}</p>
+                        <p><strong>Número do Calçado:</strong> {{formData2.numero_calcado}}</p>
+                        <p><strong>Tipo de Calçado Diário:</strong> {{formData2.tipo_calcado_diario}}</p>
+                        <p><strong>Especificação do Calçado:</strong> {{formData2.tipo_calcado_qual}}</p>
+                        <p><strong>Fumante:</strong> {{formData2.fumante}}</p>
+                        <p><strong>Menstruação Regular:</strong> {{formData2.menstruacao}}</p>
+                        <p><strong>Gestante:</strong> {{formData2.gestante}}</p>
+                        <p><strong>Amamentando:</strong> {{formData2.amamentando}}</p>
+                        <p><strong>Data da Última Menstruação:</strong> {{formData2.dum}}</p>
+                        <p><strong>Prática de Atividade Física:</strong> {{formData2.pratica_atividade_fisica}}</p>
+                        <p><strong>Frequência da Atividade Física:</strong> {{formData2.frequencia_atividade_fisica}}</p>
+                        <p><strong>Esporte ou Atividade:</strong> {{formData2.esporte_atividade}}</p>
+                        <p><strong>Tipo de Calçado para Esporte:</strong> {{formData2.tipo_calcado_esporte}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Histórico Médico -->
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-header bg-primary">Dados Clinicos</div>
+                    <div class="card-body">
+                        <p><strong>Osteoporose:</strong> {{#formData3.Osteoporose}}Sim{{/formData3.Osteoporose}}{{^formData3.Osteoporose}}Não{{/formData3.Osteoporose}}</p>
+                        <p><strong>Renal:</strong> {{#formData3.Renal}}Sim{{/formData3.Renal}}{{^formData3.Renal}}Não{{/formData3.Renal}}</p>
+                        <p><strong>Epilepsia:</strong> {{#formData3.Epilepsia}}Sim{{/formData3.Epilepsia}}{{^formData3.Epilepsia}}Não{{/formData3.Epilepsia}}</p>
+                        <p><strong>Quimioterapia/Radioterapia:</strong> {{#formData3.Quimioterapia_Radioterapia}}Sim{{/formData3.Quimioterapia_Radioterapia}}{{^formData3.Quimioterapia_Radioterapia}}Não{{/formData3.Quimioterapia_Radioterapia}}</p>
+                        <p><strong>Hipotireoidismo:</strong> {{#formData3.Hipotireoidismo}}Sim{{/formData3.Hipotireoidismo}}{{^formData3.Hipotireoidismo}}Não{{/formData3.Hipotireoidismo}}</p>
+                        <p><strong>Antecedente Oncológico:</strong> {{#formData3.Antecedente_Oncologico}}Sim{{/formData3.Antecedente_Oncologico}}{{^formData3.Antecedente_Oncologico}}Não{{/formData3.Antecedente_Oncologico}}</p>
+                        <p><strong>Hepatite:</strong> {{#formData3.Hepatite}}Sim{{/formData3.Hepatite}}{{^formData3.Hepatite}}Não{{/formData3.Hepatite}}</p>
+                        <p><strong>Cardiopatia:</strong> {{#formData3.Cardiopatia}}Sim{{/formData3.Cardiopatia}}{{^formData3.Cardiopatia}}Não{{/formData3.Cardiopatia}}</p>
+                        <p><strong>Hipotensão:</strong> {{#formData3.Hipotensao}}Sim{{/formData3.Hipotensao}}{{^formData3.Hipotensao}}Não{{/formData3.Hipotensao}}</p>
+                        <p><strong>Reumatismo:</strong> {{#formData3.Reumatismo}}Sim{{/formData3.Reumatismo}}{{^formData3.Reumatismo}}Não{{/formData3.Reumatismo}}</p>
+                        <p><strong>Hanseníase:</strong> {{#formData3.Hanseniase}}Sim{{/formData3.Hanseniase}}{{^formData3.Hanseniase}}Não{{/formData3.Hanseniase}}</p>
+                        <p><strong>Cirurgia MMII:</strong> {{#formData3.Cirurgia_MMII}}Sim{{/formData3.Cirurgia_MMII}}{{^formData3.Cirurgia_MMII}}Não{{/formData3.Cirurgia_MMII}}</p>
+                        <p><strong>Marca-Passo:</strong> {{#formData3.Marca_Passo}}Sim{{/formData3.Marca_Passo}}{{^formData3.Marca_Passo}}Não{{/formData3.Marca_Passo}}</p>
+                        <p><strong>Hipertensão:</strong> {{#formData3.Hipertensao}}Sim{{/formData3.Hipertensao}}{{^formData3.Hipertensao}}Não{{/formData3.Hipertensao}}</p>
+                        <p><strong>Uso de Insulina:</strong> {{#formData3.Insulina}}Sim{{/formData3.Insulina}}{{^formData3.Insulina}}Não{{/formData3.Insulina}}</p>
+                        <p><strong>Dieta Hídrica:</strong> {{#formData3.Dieta_Hidrica}}Sim{{/formData3.Dieta_Hidrica}}{{^formData3.Dieta_Hidrica}}Não{{/formData3.Dieta_Hidrica}}</p>
+                        <p><strong>Medicamento Injetável:</strong> {{#formData3.Injetavel}}Sim{{/formData3.Injetavel}}{{^formData3.Injetavel}}Não{{/formData3.Injetavel}}</p>
+                        <p><strong>Dieta Alimentar:</strong> {{#formData3.Dieta_Alimentar}}Sim{{/formData3.Dieta_Alimentar}}{{^formData3.Dieta_Alimentar}}Não{{/formData3.Dieta_Alimentar}}</p>
+                        <p><strong>Medicamento Via Oral:</strong> {{#formData3.Via_Oral}}Sim{{/formData3.Via_Oral}}{{^formData3.Via_Oral}}Não{{/formData3.Via_Oral}}</p>
+                        <p><strong>Taxa Glicêmica:</strong> {{#formData3.Taxa_Glicemica}}Sim{{/formData3.Taxa_Glicemica}}{{^formData3.Taxa_Glicemica}}Não{{/formData3.Taxa_Glicemica}}</p>
+                        <p><strong>Alterações Vasculares:</strong> {{#formData3.Alteracoes_Vasculares}}Sim{{/formData3.Alteracoes_Vasculares}}{{^formData3.Alteracoes_Vasculares}}Não{{/formData3.Alteracoes_Vasculares}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <!-- Alterações e Lesões dos Pés -->
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-header bg-primary">Alterações e Lesões dos Pés</div>
+                    <div class="card-body">
+                        <p><strong>Tipo de Pisada:</strong> {{formData4.Tipo_Pisada}}</p>
+                        <p><strong>Pé Flexível (D):</strong> {{#formData4.Flexivel_D}}Sim{{/formData4.Flexivel_D}}{{^formData4.Flexivel_D}}Não{{/formData4.Flexivel_D}}</p>
+                        <p><strong>Pé Flexível (E):</strong> {{#formData4.Flexivel_E}}Sim{{/formData4.Flexivel_E}}{{^formData4.Flexivel_E}}Não{{/formData4.Flexivel_E}}</p>
+                        <p><strong>Pé Rígido (D):</strong> {{#formData4.Rigido_D}}Sim{{/formData4.Rigido_D}}{{^formData4.Rigido_D}}Não{{/formData4.Rigido_D}}</p>
+                        <p><strong>Pé Rígido (E):</strong> {{#formData4.Rigido_E}}Sim{{/formData4.Rigido_E}}{{^formData4.Rigido_E}}Não{{/formData4.Rigido_E}}</p>
+                        <p><strong>Pé Espalmado (D):</strong> {{#formData4.Espalmado_D}}Sim{{/formData4.Espalmado_D}}{{^formData4.Espalmado_D}}Não{{/formData4.Espalmado_D}}</p>
+                        <p><strong>Pé Espalmado (E):</strong> {{#formData4.Espalmado_E}}Sim{{/formData4.Espalmado_E}}{{^formData4.Espalmado_E}}Não{{/formData4.Espalmado_E}}</p>
+                        <p><strong>Dedo em Martelo (D):</strong> {{#formData4.Martelo_D}}Sim{{/formData4.Martelo_D}}{{^formData4.Martelo_D}}Não{{/formData4.Martelo_D}}</p>
+                        <p><strong>Dedo em Martelo (E):</strong> {{#formData4.Martelo_E}}Sim{{/formData4.Martelo_E}}{{^formData4.Martelo_E}}Não{{/formData4.Martelo_E}}</p>
+                        <p><strong>Queda de Metatarso (D):</strong> {{#formData4.Queda_Metatarso_D}}Sim{{/formData4.Queda_Metatarso_D}}{{^formData4.Queda_Metatarso_D}}Não{{/formData4.Queda_Metatarso_D}}</p>
+                        <p><strong>Queda de Metatarso (E):</strong> {{#formData4.Queda_Metatarso_E}}Sim{{/formData4.Queda_Metatarso_E}}{{^formData4.Queda_Metatarso_E}}Não{{/formData4.Queda_Metatarso_E}}</p>
+                        <p><strong>Tipo de Marcha:</strong> {{formData4.Tipo_Marcha}}</p>
+                        <p><strong>Joelho:</strong> {{formData4.Joelho}}</p>
+                        <p><strong>Articulação:</strong> {{formData4.Articulacao}}</p>
+                        <p><strong>Sensibilidade à Dor:</strong> {{#formData4.Sensibilidade_Dor}}Sim{{/formData4.Sensibilidade_Dor}}{{^formData4.Sensibilidade_Dor}}Não{{/formData4.Sensibilidade_Dor}}</p>
+                        <p><strong>Descrição da Marcha:</strong> {{formData4.Marcha_Descricao}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Condições Ungueais -->
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-header bg-primary ">Condições Ungueais</div>
+                    <div class="card-body">
+                        <h4>Pé Direito (PD)</h4>
+                        <p><strong>Hálux:</strong> {{formData5.PD_halux}}</p>
+                        <p><strong>2º Dedo:</strong> {{formData5.PD_2}}</p>
+                        <p><strong>3º Dedo:</strong> {{formData5.PD_3}}</p>
+                        <p><strong>4º Dedo:</strong> {{formData5.PD_4}}</p>
+                        <p><strong>5º Dedo:</strong> {{formData5.PD_5}}</p>
+       
+                        <h4>Pé Esquerdo (PE)</h4>
+                        <p><strong>Hálux:</strong> {{formData5.PE_halux}}</p>
+                        <p><strong>2º Dedo:</strong> {{formData5.PE_2}}</p>
+                        <p><strong>3º Dedo:</strong> {{formData5.PE_3}}</p>
+                        <p><strong>4º Dedo:</strong> {{formData5.PE_4}}</p>
+                        <p><strong>5º Dedo:</strong> {{formData5.PE_5}}</p>
+ 
+        
+                        <p><strong>Onicoatrofia:</strong> {{#formData5.Onicoatrofia}}Sim{{/formData5.Onicoatrofia}}{{^formData5.Onicoatrofia}}Não{{/formData5.Onicoatrofia}}</p>
+                        <p><strong>Onicocriptose:</strong> {{#formData5.Onicocriptose}}Sim{{/formData5.Onicocriptose}}{{^formData5.Onicocriptose}}Não{{/formData5.Onicocriptose}}</p>
+                        <p><strong>Onicorrexe:</strong> {{#formData5.Onicorrexe}}Sim{{/formData5.Onicorrexe}}{{^formData5.Onicorrexe}}Não{{/formData5.Onicorrexe}}</p>
+                        <p><strong>Granuloma:</strong> {{#formData5.Granuloma}}Sim{{/formData5.Granuloma}}{{^formData5.Granuloma}}Não{{/formData5.Granuloma}}</p>
+                        <p><strong>Onicogrifose:</strong> {{#formData5.Onicogrifose}}Sim{{/formData5.Onicogrifose}}{{^formData5.Onicogrifose}}Não{{/formData5.Onicogrifose}}</p>
+                        <p><strong>Onicolise:</strong> {{#formData5.Onicolise}}Sim{{/formData5.Onicolise}}{{^formData5.Onicolise}}Não{{/formData5.Onicolise}}</p>
+                        <p><strong>Onicofose:</strong> {{#formData5.Onicofose}}Sim{{/formData5.Onicofose}}{{^formData5.Onicofose}}Não{{/formData5.Onicofose}}</p>
+                        <p><strong>Psoríase Ungueal:</strong> {{#formData5.Psoriase_ungueal}}Sim{{/formData5.Psoriase_ungueal}}{{^formData5.Psoriase_ungueal}}Não{{/formData5.Psoriase_ungueal}}</p>
+                        <p><strong>Onicomicose:</strong> {{#formData5.Onicomicose}}Sim{{/formData5.Onicomicose}}{{^formData5.Onicomicose}}Não{{/formData5.Onicomicose}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alterações e Lesões da Pele -->
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-header bg-primary">Alterações e Lesões da Pele</div>
+                    <div class="card-body">
+                        <p><strong>Bromidrose:</strong> {{#formData6.bromidrose}}Sim{{/formData6.bromidrose}}{{^formData6.bromidrose}}Não{{/formData6.bromidrose}}</p>
+                        <p><strong>Hidrose:</strong> {{#formData6.hidrose}}Sim{{/formData6.hidrose}}{{^formData6.hidrose}}Não{{/formData6.hidrose}}</p>
+                        <p><strong>Desidrose:</strong> {{#formData6.desidrose}}Sim{{/formData6.desidrose}}{{^formData6.desidrose}}Não{{/formData6.desidrose}}</p>
+                        <p><strong>Isquemia:</strong> {{#formData6.isquemia}}Sim{{/formData6.isquemia}}{{^formData6.isquemia}}Não{{/formData6.isquemia}}</p>
+                        <p><strong>Mal Perfurante:</strong> {{#formData6.mal_perfurante}}Sim{{/formData6.mal_perfurante}}{{^formData6.mal_perfurante}}Não{{/formData6.mal_perfurante}}</p>
+                        <p><strong>Edema:</strong> {{#formData6.edema}}Sim{{/formData6.edema}}{{^formData6.edema}}Não{{/formData6.edema}}</p>
+                        <p><strong>Tínea:</strong> {{#formData6.tinea}}Sim{{/formData6.tinea}}{{^formData6.tinea}}Não{{/formData6.tinea}}</p>
+                        <p><strong>Psoríase:</strong> {{#formData6.psoriase}}Sim{{/formData6.psoriase}}{{^formData6.psoriase}}Não{{/formData6.psoriase}}</p>
+                        <p><strong>Tungíase:</strong> {{#formData6.tungiase}}Sim{{/formData6.tungiase}}{{^formData6.tungiase}}Não{{/formData6.tungiase}}</p>
+                        <p><strong>Verruga Plantar:</strong> {{#formData6.verruga_plantar}}Sim{{/formData6.verruga_plantar}}{{^formData6.verruga_plantar}}Não{{/formData6.verruga_plantar}}</p>
+                        <p><strong>Calo Dorsal:</strong> {{#formData6.calo_dorsal}}Sim{{/formData6.calo_dorsal}}{{^formData6.calo_dorsal}}Não{{/formData6.calo_dorsal}}</p>
+                        <p><strong>Querotose:</strong> {{#formData6.querotose}}Sim{{/formData6.querotose}}{{^formData6.querotose}}Não{{/formData6.querotose}}</p>
+                        <p><strong>Calo Plantar:</strong> {{#formData6.calo_plantar}}Sim{{/formData6.calo_plantar}}{{^formData6.calo_plantar}}Não{{/formData6.calo_plantar}}</p>
+                        <p><strong>Hiperqueratose:</strong> {{#formData6.hiperqueratose}}Sim{{/formData6.hiperqueratose}}{{^formData6.hiperqueratose}}Não{{/formData6.hiperqueratose}}</p>
+                        <p><strong>Calo Interdigital:</strong> {{#formData6.calo_interdigital}}Sim{{/formData6.calo_interdigital}}{{^formData6.calo_interdigital}}Não{{/formData6.calo_interdigital}}</p>
+ 
+        
+                        <p><strong>Perfusão Pé Direito (PD):</strong> {{formData6.perfusao_PD}}</p>
+                        <p><strong>Perfusão Pé Esquerdo (PE):</strong> {{formData6.perfusao_PE}}</p>
+ 
+                        
+                        <p><strong>Já teve ou apresenta Erisipela?:</strong> {{#formData6.teve_erisipela}}Sim{{/formData6.teve_erisipela}}{{^formData6.teve_erisipela}}Não{{/formData6.teve_erisipela}}</p>
+ 
+        
+                        <p><strong>Alterações adicionais:</strong> {{formData6.outras_alteracoes}}</p>
+                        <p><strong>Comentários:</strong> {{formData6.comentarios}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+        <form action="/submit" method="POST">
+            <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+    </div>
+</div>
+ 
+        </div>
+    </div>
+{{>partials/footer}}

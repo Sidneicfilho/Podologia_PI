@@ -1,0 +1,337 @@
+{{>partials/header}}
+
+<style>
+        :root {
+            --primary-color: #004A8F;
+            --secondary-color: #E6E6E6;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .form-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .page-title {
+            color: rgb(243, 243, 243);
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            background: linear-gradient(339deg, rgb(230, 155, 42) 25%, rgb(1, 75, 139) 45%);
+            border-radius: 8px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        .radio-group {
+             
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .form-check-label {
+            margin-left: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .condition-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        h4 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .condition-item {
+            background: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+        
+        .condition-item:hover {
+            background: #e9ecef;
+        }
+        
+        .insulin-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .diet-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .btn-primary {
+            background-color: rgb(1, 75, 139);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #003666;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container form-container">
+        <form action="/etapa3" method="POST">
+           <div class="logo">
+            <img src="images/senac-logo-0-removebg-preview-removebg-preview.png" href="/" alt="Logo Senac" class="img-fluid">
+        </div>
+        <p class="page-title">Ficha de Avaliação Podológica</p>
+
+        <form action="/etapa2" id="form_etapa2" method="POST" class="needs-validation" novalidate>
+            <input type="hidden" id="id_cliente" name="id_cliente" value="{{id_cliente}}">
+            <h4>Dados Clinicos</h4>
+            
+            <div class="condition-group">
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="osteoporose" name="Osteoporose" value="true">
+                        <label class="form-check-label" for="osteoporose">Osteoporose</label>
+                    </div>
+                </div>
+                
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="renal" name="Renal" value="true">
+                        <label class="form-check-label" for="renal">Renal</label>
+                    </div>
+                </div>
+                
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="epilepsia" name="Epilepsia" value="true">
+                        <label class="form-check-label" for="epilepsia">Epilepsia</label>
+                    </div>
+                </div>
+                
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="quimioRadio" name="Quimioterapia_Radioterapia" value="true">
+                        <label class="form-check-label" for="quimioRadio">Quimioterapia/Radioterapia</label>
+                    </div>
+                </div>
+                
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Hipotireoidismo" name="Hipotireoidismo" value="true">
+                        <label class="form-check-label" for="Hipotireoidismo">Hipotiroidismo</label>
+                    </div>
+                </div>
+                
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Hepatite" name="Hepatite" value="true">
+                        <label class="form-check-label" for="Hepatite">Hepatite</label>
+                    </div>
+                </div>
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Hanseniase" name="Hanseniase" value="true">
+                        <label class="form-check-label" for="Hanseniase">Hanseniase</label>
+                    </div>
+                </div>
+                
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="onco" name="Antecedente_Oncologico" value="true">
+                        <label class="form-check-label" for="onco">Antecedente Oncológico</label>
+                    </div>
+                </div>
+
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Cirurgia_MMII" name="Cirurgia_MMII" value="true">
+                        <label class="form-check-label" for="Cirurgia_MMII">Cirurgia MMII</label>
+                    </div>
+                </div>
+                
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Cardiopatia" name="Cardiopatia" value="true">
+                        <label class="form-check-label" for="Cardiopatia">Cardiopatia</label>
+                    </div>
+                </div>
+                
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Hipertensao" name="Hipertensao" value="true">
+                        <label class="form-check-label" for="Hipertensao">Hipertensão</label>
+                    </div>
+                </div>
+
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Hipotensao" name="Hipotensao" value="true">
+                        <label class="form-check-label" for="Hipotensao">Hipotensão</label>
+                    </div>
+                </div>
+                
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Reumatismo" name="Reumatismo" value="true">
+                        <label class="form-check-label" for="Reumatismo">Reumatismo</label>
+                    </div>
+                </div>
+
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Marca_passo" name="Marca_passo" value="true">
+                        <label class="form-check-label" for="Marca_passo">Marca Passo</label>
+                    </div>
+                </div>
+
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Hipertiroidismo" name="Hipertiroidismo" value="true">
+                        <label class="form-check-label" for="Hipertiroidismo">Hipertiroidismo</label>
+                    </div>
+                </div>
+                <div class="condition-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Neuropatia" name="Neuropatia" value="true">
+                        <label class="form-check-label" for="Neuropatia">Neuropatia</label>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="row">
+            <div class="col-6">
+                <div class="radio-group">
+                <label class="form-label">Dieta Hidrica?</label>
+                    <div class="d-flex gap-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Dieta_Hidrica" value="Sim" >
+                            <label class="form-check-label" for="DietaH-sim">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Dieta_Hidrica" value="Não">
+                            <label class="form-check-label" for="DietaH-nao">Não</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="radio-group">
+                <label class="form-label">Dieta Alimentar?</label>
+                    <div class="d-flex gap-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Dieta_Alimentar" value="Sim" >
+                            <label class="form-check-label" for="DietaA-sim">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Dieta_Alimentar" value="Não">
+                            <label class="form-check-label" for="DietaA-nao">Não</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="radio-group">
+                <label class="form-label">Insulina?</label>
+                    <div class="d-flex gap-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="alergico" id="alergico-sim" value="Sim" >
+                            <label class="form-check-label" for="alergico-sim">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="alergico" id="alergico-nao" value="Não">
+                            <label class="form-check-label" for="alergico-nao">Não</label>
+                        </div>
+                    </div>
+                    <label class="form-label mt-3">De qual tipo?</label>
+                    <div class="d-flex gap-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Tipo_Insulina" value="Via Oral" >
+                            <label class="form-check-label" for="alergico-sim">Via Oral</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Tipo_Insulina"  value="Injetável">
+                            <label class="form-check-label" for="alergico-nao">Injetável</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            
+            <div class="mb-4">
+                <label for="taxaGlicemica" class="form-label">Taxa Glicêmica (mg/dL)</label>
+                <input type="number" 
+                       class="form-control" 
+                       id="taxaGlicemica" 
+                       name="Taxa_Glicemica" 
+                       placeholder="Ex: 100" 
+                       min="0" 
+                       step="0.01"
+                       style="max-width: 400px;">
+            </div>
+
+            <div class="col-md-6">
+            
+                <div class="mb-3">
+                    <label for="dataNascimento" class="form-label">Data da ultima verificação</label>
+                    <input type="date" class="form-control" id="dataNascimento" name="dataNascimento">
+                </div>
+                
+            
+        </div>
+            
+            <div class="d-flex justify-content-between mt-5">
+                <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                    <i class="bi bi-arrow-left me-2"></i>Voltar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Próximo<i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+{{>partials/footer}}

@@ -1,0 +1,193 @@
+{{>partials/header}}
+<script src="public/js/etapa1.js"></script>
+
+  <style>
+        :root {
+            --primary-color: #004a8f;
+            --secondary-color: #f8f9fa;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .page-title {
+            color: rgb(243, 243, 243);
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            background: linear-gradient(339deg, rgb(230, 155, 42) 25%, rgb(1, 75, 139) 45%);
+            border-radius: 8px;
+        }
+
+        h4 {
+            color: (1, 75, 139);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(0, 74, 143, 0.25);
+        }
+
+        .gender-section {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-primary {
+            background-color: rgb(1, 75, 139);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #003366;
+            transform: translateY(-2px);
+        }
+    </style>
+
+    <div class="container form-container">
+        <div class="logo">
+    <a href="/">
+        <img src="images/senac-logo-0-removebg-preview-removebg-preview.png" 
+             alt="Logo Senac" class="img-fluid">
+    </a>
+</div>
+
+        
+        <p class="page-title">Ficha de Avaliação Podológica</p>
+        
+        <form action="/etapa1" id="form_etapa1" method="POST" class="needs-validation" novalidate>
+            <input type="hidden" id="id_cliente" name="id_cliente" value="{{id_cliente}}">
+            
+            <h4>Dados Pessoais</h4>
+            
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Informe seu nome" required>
+                </div>
+                
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="seu@email.com" required>
+                </div>
+                
+                <div class="col-md-8">
+                    <label for="endereco" class="form-label">Endereço</label>
+                    <input type="text" class="form-control" id="endereco" name="endereco" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="cep" name="cep" placeholder="xxxxx-xxx" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="bairro" name="bairro" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="cidade" name="cidade" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="estado" name="estado" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="tel_res" class="form-label">Tel. Residencial</label>
+                    <input type="text" class="form-control" id="tel_res" name="tel_res" placeholder="(xx) xxxx-xxxx" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="telefone" class="form-label">Celular</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="tel_emergencia" class="form-label">Tel. Emergência</label>
+                    <input type="text" class="form-control" id="tel_emergencia" name="tel_emergencia" placeholder="(xx) xxxxx-xxxx" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="data_nascimento" class="form-label">Data de Nascimento</label>
+                    <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="profissao" class="form-label">Profissão</label>
+                    <input type="text" class="form-control" id="profissao" name="profissao" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label for="contato" class="form-label">Contato</label>
+                    <input type="text" class="form-control" id="contato" name="contato" placeholder="Contato adicional" required>
+                </div>
+            </div>
+            
+            <div class="gender-section mt-4">
+                <label class="form-label">Sexo:</label>
+                <div class="d-flex gap-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="feminino" value="Feminino" required>
+                        <label class="form-check-label" for="feminino">Feminino</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="masculino" value="Masculino">
+                        <label class="form-check-label" for="masculino">Masculino</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="outro" value="Outro">
+                        <label class="form-check-label" for="outro">Outro</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary ">Próximo</button>
+            </div>
+        </form>
+    </div>
+
+
+{{>partials/footer}}
+
+

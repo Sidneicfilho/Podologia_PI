@@ -1,0 +1,342 @@
+{{>partials/header}}
+
+<style>
+        :root {
+            --primary-color: #2c5282;
+            --secondary-color: #4299e1;
+            --background-color: #f7fafc;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: var(--background-color);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+
+        .page-title {
+            color: rgb(243, 243, 243);
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            background: linear-gradient(339deg, rgb(230, 155, 42) 25%, rgb(1, 75, 139) 45%);
+            border-radius: 8px;
+        }
+
+        .section-title {
+            color: rgb(1, 75, 139);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgb(1, 75, 139);
+        }
+        .condition-item {
+            background: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        
+        .condition-item:hover {
+            background: #e9ecef;
+        }
+        .condition-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+            
+        }
+
+        .form-check-label {
+            font-size: 1rem;
+            color: #4a5568;
+            padding-left: 0.5rem;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .subsection {
+            background-color: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .subsection h3 {
+            color: black;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            background-color: rgb(1, 75, 139);
+            border: none;
+            padding: 0.75rem 2.5rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .form-control {
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .condition-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-container {
+                padding: 0.5rem;
+            }
+            
+            .form-card {
+                padding: 1rem;
+            }
+        }
+        
+    </style>
+    <div class="main-container">
+        <form action="/etapa6" method="POST">
+            <div class="form-card">
+                <div class="logo">
+                    <img src="public/images/senac-logo-0-removebg-preview-removebg-preview.png" href="/" alt="">
+                </div>
+                <p class="page-title">Ficha de Avaliação Podológica</p>
+                
+
+                <!-- Alterações e Lesões -->
+                <section class="mb-4">
+                    <h2 class="section-title">Alterações e Lesões</h2>
+                    <div class="condition-group">
+
+                        <div class="condition-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="bromidrose" name="bromidrose" value="true">
+                                <label class="form-check-label" for="bromidrose">Bromidrose</label>
+                            </div>
+                        </div>
+
+                        <div class="condition-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="hidrose" name="hidrose" value="true">
+                                <label class="form-check-label" for="hidrose">Hidrose</label>
+                            </div>
+                        </div>
+
+                        <div class="condition-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="desidrose" name="desidrose" value="true">
+                                <label class="form-check-label" for="desidrose">Desidrose</label>
+                            </div>
+                        </div>
+
+                        <div class="condition-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="isquemia" name="isquemia" value="true">
+                                <label class="form-check-label" for="isquemia">Isquemia</label>
+                            </div>
+                        </div>
+                        
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="mal_perfurante" name="mal_perfurante" value="true">
+                            <label class="form-check-label" for="mal_perfurante">Mal Perfurante</label>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="edema" name="edema" value="true">
+                            <label class="form-check-label" for="edema">Edema</label>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="tinea" name="tinea" value="true">
+                            <label class="form-check-label" for="tinea">Tínea</label>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="psoriase" name="psoriase" value="true">
+                            <label class="form-check-label" for="psoriase">Psoríase</label>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="tungiase" name="tungiase" value="true">
+                            <label class="form-check-label" for="tungiase">Tungíase</label>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="fissuras" name="fissuras" value="true">
+                            <label class="form-check-label" for="fissuras">Fissuras</label>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="verruga_plantar" name="verruga_plantar" value="true">
+                            <label class="form-check-label" for="verruga_plantar">Verruga Plantar</label>
+                            </div>
+                        </div>
+
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="calo_dorsal" name="calo_dorsal" value="true">
+                            <label class="form-check-label" for="calo_dorsal">Calo Dorsal</label>
+                            </div>
+                        </div>
+
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="queratose" name="queratose" value="true">
+                            <label class="form-check-label" for="queratose">Queratose</label>
+                            </div>
+                        </div>
+
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="hiperqueratose" name="hiperqueratose" value="true">
+                            <label class="form-check-label" for="hiperqueratose">Hiperqueratose</label>
+                            </div>
+                        </div>
+
+                        <div class="condition-item">
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="calo_interdigital" name="calo_interdigital" value="true">
+                            <label class="form-check-label" for="calo_interdigital">Calo Interdigital</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Perfusão -->
+                <section class="mb-4">
+                    <h2 class="section-title">Perfusão</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="subsection">
+                                <h3>Pé Direito</h3>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" id="perfusao_PD" name="perfusao_PD" value="Normal">
+                                    <label class="form-check-label" for="pd_normal">Normal</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" id="perfusao_PD" name="perfusao_PD" value="Pálido">
+                                    <label class="form-check-label" for="pd_palido">Pálido</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="perfusao_PD" name="perfusao_PD" value="Cianótico">
+                                    <label class="form-check-label" for="pd_cianotico">Cianótico</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="subsection">
+                                <h3>Pé Esquerdo</h3>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" id="pe_normal" name="perfusao_PD" value="Normal">
+                                    <label class="form-check-label" for="pe_normal">Normal</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" id="pe_palido" name="perfusao_PD"  value="Pálido">
+                                    <label class="form-check-label" for="pe_palido">Pálido</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="pe_cianotico" name="perfusao_PD" value="Cianótico">
+                                    <label class="form-check-label" for="pe_cianotico">Cianótico</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Erisipela -->
+                <section class="mb-4">
+                    <h2 class="section-title">Erisipela</h2>
+                    <div class="subsection">
+                        <h3>Já teve ou apresenta Erisipela?</h3>
+                        <div class="d-flex gap-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="erisipela" id="erisipela_sim" value="sim">
+                                <label class="form-check-label" for="erisipela_sim">SIM</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="erisipela" id="erisipela_nao" value="nao" checked>
+                                <label class="form-check-label" for="erisipela_nao">NÃO</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Observações -->
+                <section class="mb-4">
+                    <h2 class="section-title">Observações Adicionais</h2>
+                    <div class="mb-3">
+                        <label for="outras_alteracoes_pele" class="form-label">Outras alterações na pele:</label>
+                        <textarea class="form-control" name="outras_alteracoes_pele" id="outras_alteracoes_pele" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="outros_comentarios" class="form-label">Outros comentários e observações:</label>
+                        <textarea class="form-control" name="outros_comentarios" id="outros_comentarios" rows="3"></textarea>
+                    </div>
+                </section>
+
+                <div class="d-flex justify-content-between mt-5">
+                <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                    <i class="bi bi-arrow-left me-2"></i>Voltar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Próximo<i class="bi bi-arrow-right ms-2"></i>
+                </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{{>partials/footer}}

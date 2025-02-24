@@ -1,0 +1,49 @@
+{{>partials/header}}
+<style>
+        body {
+            background-image: url('images/senacAmpliada_LE_ml_resize_x4 - Copia.jpg'); /* Substitua pela sua imagem */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            width: 600px;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+        .btn-primary{
+            background-color: rgb(23, 60, 139);
+        }
+        .btn-secondary{
+            background-color: rgb(255, 123, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+       
+        <div class="container form-container text-center">
+            <img src="images/senac-logo-0-removebg-preview-removebg-preview.png" alt="Logo" class="logo">
+            <h1>Bem-vindo!</h1>
+            <p>Escolha uma opção abaixo:</p>
+            <div class="d-grid gap-3 col-12 mx-auto">
+                <a href="/etapa1" class="btn btn-primary">Cadastro</a>
+                <a href="/pesquisa" class="btn btn-secondary">Pesquisa</a>
+            </div>
+        </div>
+    </div>
+{{>partials/footer}}

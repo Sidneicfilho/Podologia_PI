@@ -1,0 +1,337 @@
+{{>partials/header}}
+ <style>
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+        .logo{
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-title {
+            color: rgb(243, 243, 243);
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            background: linear-gradient(339deg, rgb(230, 155, 42) 25%, rgb(1, 75, 139) 45%);
+            border-radius: 8px;
+        }
+        
+        .form {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        
+        h4 {
+            color: #004a8f;
+            margin: 25px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #004a8f;
+        }
+        
+        .tipo-pisada {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .tipo-pisada img {
+            max-width: 150px;
+             min-width: 100px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .card-title {
+            color: #004a8f;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .form-check {
+            margin: 8px 0;
+        }
+        
+        .form-check-label {
+            margin-left: 8px;
+        }
+        
+        hr {
+            margin: 30px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        
+        
+        .section-title {
+            color:rgb(1, 75, 139);
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        input[type="text"] {
+            border: 1px solid #ddd;
+            padding: 8px;
+            border-radius: 4px;
+            width: 100%;
+            margin-top: 5px;
+            color: black      
+        }
+        .btn-primary {
+            background-color: rgb(1, 75, 139);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #003666;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+    
+    <div class="container my-5">
+        <div class="form">
+            <form action="/etapa4" method="POST" class="needs-validation" novalidate>
+                <div class="logo text-center">
+                    <img src="images/senac-logo-0-removebg-preview-removebg-preview.png" href="/" alt="Logo Senac" class="img-fluid">
+                </div>
+                
+                <p class="page-title">Ficha de Avaliação Podológica</p>
+                
+                <input type="hidden" id="id_cliente" name="id_cliente" value="{{id_cliente}}">
+                
+                <h4>Alterações e Lesões Pés</h4>
+                
+                <p class="section-title">Tipo de pisada</p>
+                <div class="tipo-pisada">
+                    <div class="text-center">
+                        <img src="images/pe_cavo.png" alt="Pé Cavo" class="img-fluid">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="Tipo_Pisada" value="cavo" id="cavo">
+                            <label class="form-check-label" for="cavo">Cavo</label>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <img src="images/pe_chato.png" alt="Pé Chato" class="img-fluid">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="Tipo_Pisada" value="chato" id="chato">
+                            <label class="form-check-label" for="chato">Chato</label>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <img src="images/pe_normal.png" alt="Pé Normal" class="img-fluid">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="Tipo_Pisada" value="normal" id="normal">
+                            <label class="form-check-label" for="normal">Normal</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <div class="row g-4  ms-auto me-autom ">
+                    <!-- Cards para características dos pés -->
+                    <div class="col-md-4 ms-5 col-lg-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="card-title">Flexível</div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="Flexivel_D" value="true" id="Flexivel_D">
+                                    <label class="form-check-label" for="Flexivel_D">Direito</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="Flexivel_E" value="true" id="Flexivel_E">
+                                    <label class="form-check-label" for="Flexivel_E">Esquerdo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="card-title">Rigido</div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="Rigido_D" value="true" id="Rigido_D">
+                                    <label class="form-check-label" for="Rigido_D">Direito</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="Rigido_E" value="true" id="Rigido_E">
+                                    <label class="form-check-label" for="Flexivel_E">Esquerdo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="card-title">Espalmado</div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="Espalmado_D" value="true" id="Espalmado_D">
+                                    <label class="form-check-label" for="Espalmado_D">Direito</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="Espalmado_E" value="true" id="Espalmado_E">
+                                    <label class="form-check-label" for="Espalmado_E">Esquerdo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="card-title">Martelo</div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="Martelo_D" value="true" id="Martelo_D">
+                                    <label class="form-check-label" for="Martelo_D">Direito</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="Martelo_E" value="true" id="Martelo_E">
+                                    <label class="form-check-label" for="Martelo_E">Esquerdo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="card-title">Queda de Metatarso</div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="Queda_Metatarso_D" value="true" id="Queda_Metatarso_D">
+                                    <label class="form-check-label" for="Queda_Metatarso_D">Direito</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="Queda_Metatarso_E" value="true" id="Queda_Metatarso_E">
+                                    <label class="form-check-label" for="Queda_Metatarso_E">Esquerdo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Repita o padrão para os outros cards -->
+                    <!-- ... -->
+                    
+                </div>
+                
+                <hr>
+                
+                <div class="row g-4 mb-5">
+                    <div class="col-md-3">
+                        <p class="section-title">Tipo de Marcha</p>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Tipo_Marcha" value="normal" id="flexCheckNormal">
+                            <label class="form-check-label" for="flexCheckNormal">Normal</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Tipo_Marcha" value="patologica" id="flexCheckPatologica">
+                            <label class="form-check-label" for="flexCheckPatologica">Patológica</label>
+                        </div>
+                        <div class="mt-3">
+                            <label for="inputText" class="form-label card-title">Qual?</label>
+                            <input type="text" class="form-control" id="inputText" name="Marcha_Descricao">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p class="section-title">Joelho</p>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Joelho" value="normal" id="flexCheckNormal">
+                            <label class="form-check-label" for="flexCheckNormal">Normal</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Joelho" value="Valgo" id="flexCheckValgo">
+                            <label class="form-check-label" for="flexCheckPatologica">Valgo</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Joelho" value="Varo" id="flexCheckValgo">
+                            <label class="form-check-label" for="flexCheckPatologica">Varo</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p class="section-title">Articulação</p>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Articulacao" value="retropé" id="flexCheckNormal">
+                            <label class="form-check-label" for="flexCheckNormal">Retropé</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Articulacao" value="chopart" id="flexCheckValgo">
+                            <label class="form-check-label" for="flexCheckPatologica">Chopart</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Articulacao" value="mediopé" id="flexCheckValgo">
+                            <label class="form-check-label" for="flexCheckPatologica">Mediopé</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Articulacao" value="lisfranc" id="flexCheckValgo">
+                            <label class="form-check-label" for="flexCheckPatologica">Lisfranc</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Articulacao" value="antepé" id="flexCheckValgo">
+                            <label class="form-check-label" for="flexCheckPatologica">Antepé</label>
+                        </div>
+                    </div>
+
+                     <div class="col-md-3">
+                        <p class="section-title">Sensiblidade a dor</p>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Joelho" value="diminuida" id="flexCheckNormal">
+                            <label class="form-check-label" for="flexCheckNormal">Diminuìda</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Joelho" value="normal" id="flexCheckValgo">
+                            <label class="form-check-label" for="flexCheckPatologica">Normal</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="Joelho" value="aumentada" id="flexCheckValgo">
+                            <label class="form-check-label" for="flexCheckPatologica">Aumentada</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Repita o padrão para as outras seções -->
+                    <!-- ... -->
+                    
+                </div>
+                
+                <div class="d-flex justify-content-between mt-5">
+                <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                    <i class="bi bi-arrow-left me-2"></i>Voltar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Próximo<i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>
+
+{{>partials/footer}}

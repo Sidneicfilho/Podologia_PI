@@ -1,0 +1,363 @@
+{{>partials/header}}
+
+  <style>
+        :root {
+            --primary-color: #004a8f;
+            --secondary-color: #f8f9fa;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .page-title {
+            color: rgb(243, 243, 243);
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            background: linear-gradient(339deg, rgb(230, 155, 42) 25%, rgb(1, 75, 139) 45%);
+            border-radius: 8px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        h4 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(0, 74, 143, 0.25);
+        }
+
+        .radio-group {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            background-color: rgb(1, 75, 139);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #003366;
+            transform: translateY(-2px);
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+    </style>
+
+    <div class="container form-container">
+        <div class="logo">
+            <img src="images/senac-logo-0-removebg-preview-removebg-preview.png" alt="Logo Senac" href="/" class="img-fluid">
+        </div>
+        <p class="page-title">Ficha de Avaliação Podológica</p>
+
+        <form action="/etapa2" id="form_etapa2" method="POST" class="needs-validation" novalidate>
+            <input type="hidden" id="id_cliente" name="id_cliente" value="{{id_cliente}}">
+            <h4>Dados Gerais</h4>
+
+            <div class="row g-3">
+                <div class="col-12">
+                    <label for="queixa_principal" class="form-label">Queixa principal</label>
+                    <input type="text" class="form-control" id="queixa_principal" name="queixa_principal" required>
+                </div>
+
+                <div class="row g-3">
+
+                    <div class="col-4">
+                        <div class="radio-group">
+                            <label class="form-label">Frequenta podólogo?</label>
+                            <div class="d-flex gap-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="frequenta_podologo" id="podologo-sim" value="Sim" required>
+                                    <label class="form-check-label" for="podologo-sim">Sim</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="frequenta_podologo" id="podologo-nao" value="Não">
+                                    <label class="form-check-label" for="podologo-nao">Não</label>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <label for="frequencia_visita_podologo" class="form-label">Frequência ao podólogo</label>
+                                <input type="text" class="form-control" id="frequencia_visita_podologo" name="frequencia_visita_podologo">
+                            </div>
+                        </div>
+                    </div>
+
+                
+
+                    <div class="col-4">
+                        <div class="radio-group">
+                            <label class="form-label">Uso de medicamentos?</label>
+                            <div class="d-flex gap-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="uso_medicamento" value="Sim" required>
+                                    <label class="form-check-label">Sim</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="uso_medicamento" value="Não">
+                                    <label class="form-check-label">Não</label>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <label for="tipo_medicamento" class="form-label">Quais medicamentos?</label>
+                                <input type="text" class="form-control" id="tipo_medicamento" name="tipo_medicamento">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="radio-group">
+                            <label class="form-label">Alérgico?</label>
+                            <div class="d-flex gap-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="alergico" id="alergico-sim" value="Sim" required>
+                                    <label class="form-check-label" for="alergico-sim">Sim</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="alergico" id="alergico-nao" value="Não">
+                                    <label class="form-check-label" for="alergico-nao">Não</label>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <label for="alergia_substancia" class="form-label">Quais substâncias?</label>
+                                <input type="text" class="form-control" id="alergia_substancia" name="alergia_substancia">
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="col-md-6">
+                    <label for="posicao_trabalho" class="form-label">Posição de trabalho</label>
+                    <select class="form-select" name="posicao_trabalho" id="posicao_trabalho" required>
+                        <option value="Em pé">Em pé</option>
+                        <option value="Sentado">Sentado</option>
+                        <option value="Andando">Andando</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="duracao_trabalho" class="form-label">Duração do trabalho</label>
+                    <input type="text" class="form-control" id="duracao_trabalho" name="duracao_trabalho" required>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="radio-group">
+                        <label class="form-label">Tempo em pé?</label>
+                        <input type="text" class="form-control" id="tempo_em_pe" name="tempo_em_pe" required>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="radio-group">
+                        <label class="form-label">Tempo sentado?</label>
+                        <input type="text" class="form-control" id="tempo_sentado" name="tempo_sentado" required>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="radio-group">
+                        <label class="form-label">Tempo caminhando?</label>
+                        <input type="text" class="form-control" id="tempo_caminhando" name="tempo_caminhando" required>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="numero_calcado" class="form-label">Número do calçado</label>
+                    <input type="text" class="form-control" id="numero_calcado" name="numero_calcado" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="tipo_calcado_diario" class="form-label">Tipo de calçado diário</label>
+                    <select class="form-select" name="tipo_calcado_diario" id="tipo_calcado_diario" required>
+                        <option value="Chinelo">Chinelo</option>
+                        <option value="Tênis">Tênis</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="tipo_calcado_qual" class="form-label">Tipo Palmilha</label>
+                    <select class="form-select" name="tipo_calcado_qual" id="tipo_calcado_qual" required>
+                        <option value="Ortopédico">Ortopédico</option>
+                        <option value="Descanso">Descanso</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="radio-group">
+                        <label class="form-label">Fumante?</label>
+                        <div class="d-flex gap-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="fumante" id="fumante-sim" value="Sim" required>
+                                <label class="form-check-label" for="fumante-sim">Sim</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="fumante" id="fumante-nao" value="Não">
+                                <label class="form-check-label" for="fumante-nao">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="radio-group">
+                        <label class="form-label">Ciclo menstrual regular?</label>
+                        <div class="d-flex gap-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="menstruacao" id="menstruacao-sim" value="Sim" required>
+                                <label class="form-check-label" for="menstruacao-sim">Sim</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="menstruacao" id="menstruacao-nao" value="Não">
+                                <label class="form-check-label" for="menstruacao-nao">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="radio-group">
+                        <label class="form-label">Gestante?</label>
+                        <div class="d-flex gap-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gestante" id="gestante-sim" value="Sim" required>
+                                <label class="form-check-label" for="gestante-sim">Sim</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gestante" id="gestante-nao" value="Não">
+                                <label class="form-check-label" for="gestante-nao">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="radio-group">
+                        <label class="form-label">Amamentando?</label>
+                        <div class="d-flex gap-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="amamentando" id="amamentando-sim" value="Sim" required>
+                                <label class="form-check-label" for="amamentando-sim">Sim</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="amamentando" id="amamentando-sim" value="Sim" required>
+                                <label for="amamentando-nao">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        <div class="col-md-6">
+            
+                <div class="mb-3">
+                    <label for="dum" class="form-label">DUM</label>
+                    <input type="date" class="form-control" id="dum" name="dum">
+                </div>
+                
+            
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="radio-group">
+                <label class="form-label">Pratica Atividade Fisica?</label>
+                    <div class="d-flex gap-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pratica_atividade_fisica" id="pratica_atividade_fisica-sim" value="Sim" required>
+                            <label class="form-check-label" for="pratica_atividade_fisica-sim">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pratica_atividade_fisica" id="pratica_atividade_fisica-nao" value="Não">
+                            <label class="form-check-label" for="pratica_atividade_fisica-nao">Não</label>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                            <label for="frequencia_atividade_fisica" class="form-label">Frequência de Atividade Fisica?</label>
+                            <input type="text" class="form-control" id="frequencia_atividade_fisica" name="frequencia_atividade_fisica">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="radio-group">
+                <label class="form-label">Pratica algum Esporte ou Atividade?</label>
+                    <div class="d-flex gap-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="esporte_atividade" id="esporte_atividade-sim" value="Sim" required>
+                            <label class="form-check-label" for="esporte_atividade-sim">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="esporte_atividade" id="esporte_atividade-nao" value="Não">
+                            <label class="form-check-label" for="esporte_atividade-nao">Não</label>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <label for="tipo_calcado_esporte" class="form-label">Calçado usado no esporte</label>
+                        <input type="text" class="form-control" id="tipo_calcado_esporte" name="tipo_calcado_esporte">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+   <div class="d-flex justify-content-between mt-5">
+                <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                    <i class="bi bi-arrow-left me-2"></i>Voltar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Próximo<i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+
+
+            
+ </div>
+        
+    </form>
+</div>
+
+
+
+{{>partials/footer}}

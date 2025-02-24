@@ -1,0 +1,557 @@
+{{>partials/header}}
+          <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .page-title {
+            color:  rgb(1, 75, 139);
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .search-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .search-button {
+            padding: 0.75rem 1.5rem;
+            background:  rgb(1, 75, 139);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: rgb(1, 75, 139);
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .patient-card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .patient-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            color:   rgb(33, 96, 152);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid  rgb(1, 75, 139);
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 1.5rem;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            padding: 0.75rem;
+            background: var(--light-bg);
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .info-item strong {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+
+        .footer {
+            background: white;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .search-form {
+                flex-direction: column;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .patient-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+    <a href="/">
+        <img src="images/senac-logo-0-removebg-preview-removebg-preview.png" 
+             alt="Logo Senac" class="logo">
+    </a>
+    <h1 class="page-title mb-0">Buscar Ficha Dos Clientes</h1>
+</div>
+
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <section class="search-section">
+            <form action="/pesquisa" method="GET" class="search-form">
+                <input type="text" name="termo" placeholder="Digite o ID ou Nome do Paciente" class="search-input">
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search me-2"></i>Buscar
+                </button>
+            </form>
+        </section>
+
+        <section class="results-section">
+            <div class="">
+                <div class="card">
+                    <h2 class="section-title">
+                        <i class="fas fa-user-circle me-2"></i>Dados Pessoais
+                    </h2>
+                    <div class="info-grid">
+                        {{#usuarios}}
+                        <div class="info-item"><strong>ID:</strong>
+                            {{#id_cliente}}{{id_cliente}}{{/id_cliente}}{{^id_cliente}}Não informado{{/id_cliente}}
+                        </div>
+                        <div class="info-item"><strong>Nome:</strong> {{#nome}}{{nome}}{{/nome}}{{^nome}}Não
+                            informado{{/nome}}</div>
+                        <div class="info-item"><strong>Email:</strong> {{#email}}{{email}}{{/email}}{{^email}}Não
+                            informado{{/email}}</div>
+                        <div class="info-item"><strong>Endereço:</strong>
+                            {{#endereco}}{{endereco}}{{/endereco}}{{^endereco}}Não informado{{/endereco}}</div>
+                        <div class="info-item"><strong>Bairro:</strong> {{#bairro}}{{bairro}}{{/bairro}}{{^bairro}}Não
+                            informado{{/bairro}}</div>
+                        <div class="info-item"><strong>Cidade:</strong> {{#cidade}}{{cidade}}{{/cidade}}{{^cidade}}Não
+                            informado{{/cidade}}</div>
+                        <div class="info-item"><strong>Estado:</strong> {{#estado}}{{estado}}{{/estado}}{{^estado}}Não
+                            informado{{/estado}}</div>
+                        <div class="info-item"><strong>CEP:</strong> {{#cep}}{{cep}}{{/cep}}{{^cep}}Não
+                            informado{{/cep}}</div>
+                        <div class="info-item"><strong>Telefone Residencial:</strong>
+                            {{#tel_res}}{{tel_res}}{{/tel_res}}{{^tel_res}}Não informado{{/tel_res}}</div>
+                        <div class="info-item"><strong>Celular:</strong>
+                            {{#telefone}}{{telefone}}{{/telefone}}{{^telefone}}Não informado{{/telefone}}</div>
+                        <div class="info-item"><strong>Telefone de Emergência:</strong>
+                            {{#tel_emergencia}}{{tel_emergencia}}{{/tel_emergencia}}{{^tel_emergencia}}Não
+                            informado{{/tel_emergencia}}</div>
+                        <div class="info-item"><strong>Contato:</strong>
+                            {{#contato}}{{contato}}{{/contato}}{{^contato}}Não informado{{/contato}}</div>
+                        <div class="info-item"><strong>Data de Nascimento:</strong>
+                            {{#data_nascimento}}{{data_nascimento}}{{/data_nascimento}}{{^data_nascimento}}Não
+                            informado{{/data_nascimento}}</div>
+                        <div class="info-item"><strong>Profissão:</strong>
+                            {{#profissao}}{{profissao}}{{/profissao}}{{^profissao}}Não informado{{/profissao}}</div>
+                        <div class="info-item"><strong>Sexo:</strong> {{#sexo}}{{sexo}}{{/sexo}}{{^sexo}}Não
+                            informado{{/sexo}}</div>
+                        {{/usuarios}}
+                    </div>
+                </div>
+
+                <div class="card">
+
+                    <h2 class="section-title">
+                        <i class="fas fa-heartbeat me-2"></i>Dados Gerais
+                    </h2>
+                    <div class="info-grid">
+                        {{#usuarios}}
+                        <div class="info-item"><strong>Queixa Principal:</strong>
+                            {{#dados_gerais.queixa_principal}}{{dados_gerais.queixa_principal}}{{/dados_gerais.queixa_principal}}{{^dados_gerais.queixa_principal}}Não
+                            informado{{/dados_gerais.queixa_principal}}</div>
+                        <div class="info-item"><strong>Frequenta Podólogo:</strong>
+                            {{#dados_gerais.frequenta_podologo}}{{dados_gerais.frequenta_podologo}}{{/dados_gerais.frequenta_podologo}}{{^dados_gerais.frequenta_podologo}}Não
+                            informado{{/dados_gerais.frequenta_podologo}}</div>
+                        <div class="info-item"><strong>Frequência ao Podólogo:</strong>
+                            {{#dados_gerais.frequencia_visita_podologo}}{{dados_gerais.frequencia_visita_podologo}}{{/dados_gerais.frequencia_visita_podologo}}{{^dados_gerais.frequencia_visita_podologo}}Não
+                            informado{{/dados_gerais.frequencia_visita_podologo}}</div>
+                        <div class="info-item"><strong>Uso de Medicamentos:</strong>
+                            {{#dados_gerais.uso_medicamento}}{{dados_gerais.uso_medicamento}}{{/dados_gerais.uso_medicamento}}{{^dados_gerais.uso_medicamento}}Não
+                            informado{{/dados_gerais.uso_medicamento}}</div>
+                        <div class="info-item"><strong>Tipo de Medicamento:</strong>
+                            {{#dados_gerais.tipo_medicamento}}{{dados_gerais.tipo_medicamento}}{{/dados_gerais.tipo_medicamento}}{{^dados_gerais.tipo_medicamento}}Não
+                            informado{{/dados_gerais.tipo_medicamento}}</div>
+                        <div class="info-item"><strong>Alérgico:</strong>
+                            {{#dados_gerais.alergico}}{{dados_gerais.alergico}}{{/dados_gerais.alergico}}{{^dados_gerais.alergico}}Não
+                            informado{{/dados_gerais.alergico}}</div>
+                        <div class="info-item"><strong>Substâncias Alérgicas:</strong>
+                            {{#dados_gerais.alergia_substancia}}{{dados_gerais.alergia_substancia}}{{/dados_gerais.alergia_substancia}}{{^dados_gerais.alergia_substancia}}Não
+                            informado{{/dados_gerais.alergia_substancia}}</div>
+                        <div class="info-item"><strong>Posição no Trabalho:</strong>
+                            {{#dados_gerais.posicao_trabalho}}{{dados_gerais.posicao_trabalho}}{{/dados_gerais.posicao_trabalho}}{{^dados_gerais.posicao_trabalho}}Não
+                            informado{{/dados_gerais.posicao_trabalho}}</div>
+                        <div class="info-item"><strong>Duração do Trabalho:</strong>
+                            {{#dados_gerais.duracao_trabalho}}{{dados_gerais.duracao_trabalho}}{{/dados_gerais.duracao_trabalho}}{{^dados_gerais.duracao_trabalho}}Não
+                            informado{{/dados_gerais.duracao_trabalho}}</div>
+                        <div class="info-item"><strong>Tempo em Pé:</strong>
+                            {{#dados_gerais.tempo_em_pe}}{{dados_gerais.tempo_em_pe}}{{/dados_gerais.tempo_em_pe}}{{^dados_gerais.tempo_em_pe}}Não
+                            informado{{/dados_gerais.tempo_em_pe}}</div>
+                        <div class="info-item"><strong>Tempo Sentado:</strong>
+                            {{#dados_gerais.tempo_sentado}}{{dados_gerais.tempo_sentado}}{{/dados_gerais.tempo_sentado}}{{^dados_gerais.tempo_sentado}}Não
+                            informado{{/dados_gerais.tempo_sentado}}</div>
+                        <div class="info-item"><strong>Tempo Caminhando:</strong>
+                            {{#dados_gerais.tempo_caminhando}}{{dados_gerais.tempo_caminhando}}{{/dados_gerais.tempo_caminhando}}{{^dados_gerais.tempo_caminhando}}Não
+                            informado{{/dados_gerais.tempo_caminhando}}</div>
+                        <div class="info-item"><strong>Número do Calçado:</strong>
+                            {{#dados_gerais.numero_calcado}}{{dados_gerais.numero_calcado}}{{/dados_gerais.numero_calcado}}{{^dados_gerais.numero_calcado}}Não
+                            informado{{/dados_gerais.numero_calcado}}</div>
+                        <div class="info-item"><strong>Tipo de Calçado Diário:</strong>
+                            {{#dados_gerais.tipo_calcado_diario}}{{dados_gerais.tipo_calcado_diario}}{{/dados_gerais.tipo_calcado_diario}}{{^dados_gerais.tipo_calcado_diario}}Não
+                            informado{{/dados_gerais.tipo_calcado_diario}}</div>
+                        <div class="info-item"><strong>Especificação do Calçado:</strong>
+                            {{#dados_gerais.tipo_calcado_qual}}{{dados_gerais.tipo_calcado_qual}}{{/dados_gerais.tipo_calcado_qual}}{{^dados_gerais.tipo_calcado_qual}}Não
+                            informado{{/dados_gerais.tipo_calcado_qual}}</div>
+                        <div class="info-item"><strong>Fumante:</strong>
+                            {{#dados_gerais.fumante}}{{dados_gerais.fumante}}{{/dados_gerais.fumante}}{{^dados_gerais.fumante}}Não
+                            informado{{/dados_gerais.fumante}}</div>
+                        <div class="info-item"><strong>Menstruação Regular:</strong>
+                            {{#dados_gerais.menstruacao}}{{dados_gerais.menstruacao}}{{/dados_gerais.menstruacao}}{{^dados_gerais.menstruacao}}Não
+                            informado{{/dados_gerais.menstruacao}}</div>
+                        <div class="info-item"><strong>Gestante:</strong>
+                            {{#dados_gerais.gestante}}{{dados_gerais.gestante}}{{/dados_gerais.gestante}}{{^dados_gerais.gestante}}Não
+                            informado{{/dados_gerais.gestante}}</div>
+                        <div class="info-item"><strong>Amamentando:</strong>
+                            {{#dados_gerais.amamentando}}{{dados_gerais.amamentando}}{{/dados_gerais.amamentando}}{{^dados_gerais.amamentando}}Não
+                            informado{{/dados_gerais.amamentando}}</div>
+                        {{/usuarios}}
+                    </div>
+                </div>
+
+                <div class="card">
+
+                    <h2 class="section-title">
+                        <i class="fas fa-heartbeat me-2"></i>Dados Clinicos
+                    </h2>
+
+                    <div class="info-grid">
+                        {{#usuarios}}
+                        <div class="info-item"><strong>Osteoporose:</strong>
+                            {{#Osteoporose}}{{Osteoporose}}Sim{{/Osteoporose}}{{^Osteoporose}}Não{{/Osteoporose}}
+                        </div>
+                        <div class="info-item"><strong>Quimioterapia/Radioterapia:</strong>
+                            {{#Quimioterapia_Radioterapia}}{{Quimioterapia_Radioterapia}}Sim{{/Quimioterapia_Radioterapia}}{{^Quimioterapia_Radioterapia}}Não
+                            {{/Quimioterapia_Radioterapia}}</div>
+                        <div class="info-item"><strong>Antecedente Oncológico:</strong>
+                            {{#Antecedente_Oncologico}}{{Antecedente_Oncologico}}Sim{{/Antecedente_Oncologico}}{{^Antecedente_Oncologico}}Não
+                            {{/Antecedente_Oncologico}}</div>
+                        <div class="info-item"><strong>Reumatismo:</strong>
+                            {{#Reumatismo}}{{Reumatismo}}{{/Reumatismo}}Sim{{^Reumatismo}}Não{{/Reumatismo}}
+                        </div>
+                        <div class="info-item"><strong>Marca-passo:</strong>
+                            {{#Marca_passo}}{{Marca_passo}}Sim{{/Marca_passo}}{{^Marca_passo}}Não{{/Marca_passo}}
+                        </div>
+                        <div class="info-item"><strong>Hipotensão:</strong>
+                            {{#Hipotensao}}{{Hipotensao}}Sim{{/Hipotensao}}{{^Hipotensao}}Não{{/Hipotensao}}
+                        </div>
+                        <div class="info-item"><strong>Problemas Renais:</strong>
+                            {{#Renal}}{{Renal}}Sim{{/Renal}}{{^Renal}}Não
+                            {{/Renal}}</div>
+                        <div class="info-item"><strong>Hipotireoidismo:</strong>
+                            {{#Hipotireoidismo}}{{Hipotireoidismo}}Sim{{/Hipotireoidismo}}{{^Hipotireoidismo}}Não
+                            {{/Hipotireoidismo}}</div>
+                        <div class="info-item"><strong>Cardiopatia:</strong>
+                            {{#Cardiopatia}}{{Cardiopatia}}Sim{{/Cardiopatia}}{{^Cardiopatia}}Não{{/Cardiopatia}}
+                        </div>
+                        <div class="info-item"><strong>Hanseníase:</strong>
+                            {{#Hanseniase}}{{Hanseniase}}Sim{{/Hanseniase}}{{^Hanseniase}}Não{{/Hanseniase}}
+                        </div>
+                        <div class="info-item"><strong>Epilepsia:</strong>
+                            {{#Epilepsia}}{{Epilepsia}}Sim{{/Epilepsia}}{{^Epilepsia}}Não{{/Epilepsia}}</div>
+                        <div class="info-item"><strong>Hepatite:</strong>
+                            {{#Hepatite}}{{Hepatite}}{{/Hepatite}}{{^Hepatite}}Não informado{{/Hepatite}}</div>
+                        <div class="info-item"><strong>Hipertensão:</strong>
+                            {{#Hipertensao}}{{Hipertensao}}Sim{{/Hipertensao}}{{^Hipertensao}}Não{{/Hipertensao}}
+                        </div>
+                        <div class="info-item"><strong>Cirurgia MMII:</strong>
+                            {{#Cirurgia_MMII}}{{Cirurgia_MMII}}Sim{{/Cirurgia_MMII}}{{^Cirurgia_MMII}}Não
+                            {{/Cirurgia_MMII}}</div>
+                        <div class="info-item"><strong>Alterações Vasculares:</strong>
+                            {{#Alteracoes_Vasculares}}{{Alteracoes_Vasculares}}Sim{{/Alteracoes_Vasculares}}{{^Alteracoes_Vasculares}}Não
+                            {{/Alteracoes_Vasculares}}</div>
+                        <div class="info-item"><strong>Uso de Insulina:</strong>
+                            {{#Insulina}}{{Insulina}}Sim{{/Insulina}}{{^Insulina}}Não {{/Insulina}}</div>
+                        <div class="info-item"><strong>Dieta Hídrica:</strong>
+                            {{#Dieta_Hidrica}}{{Dieta_Hidrica}}Sim{{/Dieta_Hidrica}}{{^Dieta_Hidrica}}Não
+                            {{/Dieta_Hidrica}}</div>
+                        <div class="info-item"><strong>Dieta Alimentar:</strong>
+                            {{#Dieta_Alimentar}}{{Dieta_Alimentar}}Sim{{/Dieta_Alimentar}}{{^Dieta_Alimentar}}Não
+                            {{/Dieta_Alimentar}}</div>
+                        <div class="info-item"><strong>Tipo Insulina:</strong>
+                            {{#Tipo_Insulina}}{{Tipo_Insulina}}Sim{{/Tipo_Insulina}}{{^Tipo_Insulina}}Não
+                            {{/Tipo_Insulina}}</div>
+                        <div class="info-item"><strong>Taxa Glicêmica:</strong>
+                            {{#Taxa_Glicemica}}{{Taxa_Glicemica}}Sim{{/Taxa_Glicemica}}{{^Taxa_Glicemica}}Não
+                            {{/Taxa_Glicemica}}</div>
+                        {{/usuarios}}
+                    </div>
+                </div>
+
+                <div class="card">
+
+                    <h2 class="section-title">
+                        <i class="fas fa-heartbeat me-2"></i>Alterações e Lesões Pés
+                    </h2>
+
+                    <div class="info-grid">
+                        {{#usuarios}}
+                        <div class="info-item"><strong>Tipo de Pisada:</strong>
+                            {{#alteracoeslesoespes.Tipo_Pisada}}{{alteracoeslesoespes.Tipo_Pisada}}{{/alteracoeslesoespes.Tipo_Pisada}}{{^alteracoeslesoespes.Tipo_Pisada}}Não
+                            informado{{/alteracoeslesoespes.Tipo_Pisada}}</div>
+                        <div class="info-item"><strong>Flexível Direito:</strong>
+                            {{#alteracoeslesoespes.Flexivel_D}}Sim{{/alteracoeslesoespes.Flexivel_D}}{{^alteracoeslesoespes.Flexivel_D}}Não{{/alteracoeslesoespes.Flexivel_D}}
+                        </div>
+                        <div class="info-item"><strong>Flexível Esquerdo:</strong>
+                            {{#alteracoeslesoespes.Flexivel_E}}Sim{{/alteracoeslesoespes.Flexivel_E}}{{^alteracoeslesoespes.Flexivel_E}}Não{{/alteracoeslesoespes.Flexivel_E}}
+                        </div>
+                        <div class="info-item"><strong>Rigidez Direita:</strong>
+                            {{#alteracoeslesoespes.Rigido_D}}Sim{{/alteracoeslesoespes.Rigido_D}}{{^alteracoeslesoespes.Rigido_D}}Não{{/alteracoeslesoespes.Rigido_D}}
+                        </div>
+                        <div class="info-item"><strong>Rigidez Esquerda:</strong>
+                            {{#alteracoeslesoespes.Rigido_E}}Sim{{/alteracoeslesoespes.Rigido_E}}{{^alteracoeslesoespes.Rigido_E}}Não{{/alteracoeslesoespes.Rigido_E}}
+                        </div>
+                        <div class="info-item"><strong>Pé Espalmado Direito:</strong>
+                            {{#alteracoeslesoespes.Espalmado_D}}Sim{{/alteracoeslesoespes.Espalmado_D}}{{^alteracoeslesoespes.Espalmado_D}}Não{{/alteracoeslesoespes.Espalmado_D}}
+                        </div>
+                        <div class="info-item"><strong>Pé Espalmado Esquerdo:</strong>
+                            {{#alteracoeslesoespes.Espalmado_E}}Sim{{/alteracoeslesoespes.Espalmado_E}}{{^alteracoeslesoespes.Espalmado_E}}Não{{/alteracoeslesoespes.Espalmado_E}}
+                        </div>
+                        <div class="info-item"><strong>Dedo em Martelo Direito:</strong>
+                            {{#alteracoeslesoespes.Martelo_D}}Sim{{/alteracoeslesoespes.Martelo_D}}{{^alteracoeslesoespes.Martelo_D}}Não{{/alteracoeslesoespes.Martelo_D}}
+                        </div>
+                        <div class="info-item"><strong>Dedo em Martelo Esquerdo:</strong>
+                            {{#alteracoeslesoespes.Martelo_E}}Sim{{/alteracoeslesoespes.Martelo_E}}{{^alteracoeslesoespes.Martelo_E}}Não{{/alteracoeslesoespes.Martelo_E}}
+                        </div>
+                        <div class="info-item"><strong>Queda do Metatarso Direito:</strong>
+                            {{#alteracoeslesoespes.Queda_Metatarso_D}}Sim{{/alteracoeslesoespes.Queda_Metatarso_D}}{{^alteracoeslesoespes.Queda_Metatarso_D}}Não{{/alteracoeslesoespes.Queda_Metatarso_D}}
+                        </div>
+                        <div class="info-item"><strong>Queda do Metatarso Esquerdo:</strong>
+                            {{#alteracoeslesoespes.Queda_Metatarso_E}}Sim{{/alteracoeslesoespes.Queda_Metatarso_E}}{{^alteracoeslesoespes.Queda_Metatarso_E}}Não{{/alteracoeslesoespes.Queda_Metatarso_E}}
+                        </div>
+                        <div class="info-item"><strong>Tipo de Marcha:</strong>
+                            {{#alteracoeslesoespes.Tipo_Marcha}}{{alteracoeslesoespes.Tipo_Marcha}}{{/alteracoeslesoespes.Tipo_Marcha}}{{^alteracoeslesoespes.Tipo_Marcha}}Não
+                            informado{{/alteracoeslesoespes.Tipo_Marcha}}</div>
+                        <div class="info-item"><strong>Descrição da Marcha:</strong>
+                            {{#alteracoeslesoespes.Marcha_Descricao}}{{alteracoeslesoespes.Marcha_Descricao}}{{/alteracoeslesoespes.Marcha_Descricao}}{{^alteracoeslesoespes.Marcha_Descricao}}Não
+                            informado{{/alteracoeslesoespes.Marcha_Descricao}}</div>
+                        <div class="info-item"><strong>Alinhamento do Joelho:</strong>
+                            {{#alteracoeslesoespes.Joelho}}{{alteracoeslesoespes.Joelho}}{{/alteracoeslesoespes.Joelho}}{{^alteracoeslesoespes.Joelho}}Não
+                            informado{{/alteracoeslesoespes.Joelho}}</div>
+                        <div class="info-item"><strong>Alteração Articular:</strong>
+                            {{#alteracoeslesoespes.Articulacao}}{{alteracoeslesoespes.Articulacao}}{{/alteracoeslesoespes.Articulacao}}{{^alteracoeslesoespes.Articulacao}}Não
+                            informado{{/alteracoeslesoespes.Articulacao}}</div>
+                        <div class="info-item"><strong>Sensibilidade/Dor:</strong>
+                            {{#alteracoeslesoespes.Sensibilidade_Dor}}{{alteracoeslesoespes.Sensibilidade_Dor}}{{/alteracoeslesoespes.Sensibilidade_Dor}}{{^alteracoeslesoespes.Sensibilidade_Dor}}Não
+                            informado{{/alteracoeslesoespes.Sensibilidade_Dor}}</div>
+                        {{/usuarios}}
+                    </div>
+                </div>
+
+                <div class="card">
+
+                    <h2 class="section-title">
+                        <i class="fas fa-heartbeat me-2"></i>Formato Unhas
+                    </h2>
+
+                    <div class="info-grid">
+                        {{#usuarios}}
+                        <div class="info-item"><strong>Formato do Halux Direito:</strong>
+                            {{#PD_halux}}{{PD_halux}}{{/PD_halux}}{{^PD_halux}}Não informado{{/PD_halux}}</div>
+                        <div class="info-item"><strong>Formato do 2º Dedo Direito:</strong>
+                            {{#PD_2}}{{PD_2}}{{/PD_2}}{{^PD_2}}Não informado{{/PD_2}}</div>
+                        <div class="info-item"><strong>Formato do 3º Dedo Direito:</strong>
+                            {{#PD_3}}{{PD_3}}{{/PD_3}}{{^PD_3}}Não informado{{/PD_3}}</div>
+                        <div class="info-item"><strong>Formato do 4º Dedo Direito:</strong>
+                            {{#PD_4}}{{PD_4}}{{/PD_4}}{{^PD_4}}Não informado{{/PD_4}}</div>
+                        <div class="info-item"><strong>Formato do 5º Dedo Direito:</strong>
+                            {{#PD_5}}{{PD_5}}{{/PD_5}}{{^PD_5}}Não informado{{/PD_5}}</div>
+                        <div class="info-item"><strong>Formato do Halux Esquerdo:</strong>
+                            {{#PE_halux}}{{PE_halux}}{{/PE_halux}}{{^PE_halux}}Não informado{{/PE_halux}}</div>
+                        <div class="info-item"><strong>Formato do 2º Dedo Esquerdo:</strong>
+                            {{#PE_2}}{{PE_2}}{{/PE_2}}{{^PE_2}}Não informado{{/PE_2}}</div>
+                        <div class="info-item"><strong>Formato do 3º Dedo Esquerdo:</strong>
+                            {{#PE_3}}{{PE_3}}{{/PE_3}}{{^PE_3}}Não informado{{/PE_3}}</div>
+                        <div class="info-item"><strong>Formato do 4º Dedo Esquerdo:</strong>
+                            {{#PE_4}}{{PE_4}}{{/PE_4}}{{^PE_4}}Não informado{{/PE_4}}</div>
+                        <div class="info-item"><strong>Formato do 5º Dedo Esquerdo:</strong>
+                            {{#PE_5}}{{PE_5}}{{/PE_5}}{{^PE_5}}Não informado{{/PE_5}}</div>
+                        <div class="info-item"><strong>Onicoatrofia:</strong>
+                            {{#Onicoatrofia}}Sim{{/Onicoatrofia}}{{^Onicoatrofia}}Não{{/Onicoatrofia}}</div>
+                        <div class="info-item"><strong>Onicocriptose:</strong>
+                            {{#Onicocriptose}}Sim{{/Onicocriptose}}{{^Onicocriptose}}Não{{/Onicocriptose}}</div>
+                        <div class="info-item"><strong>Onicorrexe:</strong>
+                            {{#Onicorrexe}}Sim{{/Onicorrexe}}{{^Onicorrexe}}Não{{/Onicorrexe}}</div>
+                        <div class="info-item"><strong>Granuloma:</strong>
+                            {{#Granuloma}}Sim{{/Granuloma}}{{^Granuloma}}Não{{/Granuloma}}</div>
+                        <div class="info-item"><strong>Onicogrifose:</strong>
+                            {{#Onicogrifose}}Sim{{/Onicogrifose}}{{^Onicogrifose}}Não{{/Onicogrifose}}</div>
+                        <div class="info-item"><strong>Onicolise:</strong>
+                            {{#Onicolise}}Sim{{/Onicolise}}{{^Onicolise}}Não{{/Onicolise}}</div>
+                        <div class="info-item"><strong>Onicofose:</strong>
+                            {{#Onicofose}}Sim{{/Onicofose}}{{^Onicofose}}Não{{/Onicofose}}</div>
+                        <div class="info-item"><strong>Psoríase Ungueal:</strong>
+                            {{#Psoriase_ungueal}}Sim{{/Psoriase_ungueal}}{{^Psoriase_ungueal}}Não{{/Psoriase_ungueal}}
+                        </div>
+                        <div class="info-item"><strong>Onicomicose:</strong>
+                            {{#Onicomicose}}Sim{{/Onicomicose}}{{^Onicomicose}}Não{{/Onicomicose}}</div>
+                        <div class="info-item"><strong>Outras Alterações:</strong>
+                            {{#outras_alteracoes}}{{outras_alteracoes}}{{/outras_alteracoes}}{{^outras_alteracoes}}Não
+                            informado{{/outras_alteracoes}}</div>
+                        {{/usuarios}}
+                    </div>
+                </div>
+                <div class="card">
+
+                    <h2 class="section-title">
+                        <i class="fas fa-heartbeat me-2"></i>Alterações e Lesões
+                    </h2>
+
+
+
+                    <div class="info-grid">
+                        {{#usuarios}}
+                        <div class="info-item"><strong>Bromidrose:</strong>
+                            {{#bromidrose}}Sim{{/bromidrose}}{{^bromidrose}}Não{{/bromidrose}}</div>
+                        <div class="info-item"><strong>Hidrose:</strong>
+                            {{#hidrose}}Sim{{/hidrose}}{{^hidrose}}Não{{/hidrose}}</div>
+                        <div class="info-item"><strong>Desidrose:</strong>
+                            {{#desidrose}}Sim{{/desidrose}}{{^desidrose}}Não{{/desidrose}}</div>
+                        <div class="info-item"><strong>Isquemia:</strong>
+                            {{#isquemia}}Sim{{/isquemia}}{{^isquemia}}Não{{/isquemia}}</div>
+                        <div class="info-item"><strong>Mal Perfurante:</strong>
+                            {{#mal_perfurante}}Sim{{/mal_perfurante}}{{^mal_perfurante}}Não{{/mal_perfurante}}</div>
+                        <div class="info-item"><strong>Edema:</strong> {{#edema}}Sim{{/edema}}{{^edema}}Não{{/edema}}
+                        </div>
+                        <div class="info-item"><strong>Tinea:</strong> {{#tinea}}Sim{{/tinea}}{{^tinea}}Não{{/tinea}}
+                        </div>
+                        <div class="info-item"><strong>Psoríase:</strong>
+                            {{#psoriase}}Sim{{/psoriase}}{{^psoriase}}Não{{/psoriase}}</div>
+                        <div class="info-item"><strong>Tungiase:</strong>
+                            {{#tungiase}}Sim{{/tungiase}}{{^tungiase}}Não{{/tungiase}}</div>
+                        <div class="info-item"><strong>Verruga Plantar:</strong>
+                            {{#verruga_plantar}}Sim{{/verruga_plantar}}{{^verruga_plantar}}Não{{/verruga_plantar}}</div>
+                        <div class="info-item"><strong>Calo Dorsal:</strong>
+                            {{#calo_dorsal}}Sim{{/calo_dorsal}}{{^calo_dorsal}}Não{{/calo_dorsal}}</div>
+                        <div class="info-item"><strong>Queratose:</strong>
+                            {{#querotose}}Sim{{/querotose}}{{^querotose}}Não{{/querotose}}</div>
+                        <div class="info-item"><strong>Calo Plantar:</strong>
+                            {{#calo_plantar}}Sim{{/calo_plantar}}{{^calo_plantar}}Não{{/calo_plantar}}</div>
+                        <div class="info-item"><strong>Hiperqueratose:</strong>
+                            {{#hiperqueratose}}Sim{{/hiperqueratose}}{{^hiperqueratose}}Não{{/hiperqueratose}}</div>
+                        <div class="info-item"><strong>Calo Interdigital:</strong>
+                            {{#calo_interdigital}}Sim{{/calo_interdigital}}{{^calo_interdigital}}Não{{/calo_interdigital}}
+                        </div>
+                        <div class="info-item"><strong>Perfusão Pé Direito:</strong>
+                            {{#perfusao_PD}}{{perfusao_PD}}{{/perfusao_PD}}{{^perfusao_PD}}Não informado{{/perfusao_PD}}
+                        </div>
+                        <div class="info-item"><strong>Perfusão Pé Esquerdo:</strong>
+                            {{#perfusao_PE}}{{perfusao_PE}}{{/perfusao_PE}}{{^perfusao_PE}}Não informado{{/perfusao_PE}}
+                        </div>
+                        <div class="info-item"><strong>Já teve Erisipela:</strong>
+                            {{#teve_erisipela}}Sim{{/teve_erisipela}}{{^teve_erisipela}}Não{{/teve_erisipela}}</div>
+                        <div class="info-item"><strong>Outras Alterações:</strong>
+                            {{#outras_alteracoes}}{{outras_alteracoes}}{{/outras_alteracoes}}{{^outras_alteracoes}}Não
+                            informado{{/outras_alteracoes}}</div>
+                        <div class="info-item"><strong>Comentários:</strong>
+                            {{#comentarios}}{{comentarios}}{{/comentarios}}{{^comentarios}}Não informado{{/comentarios}}
+                        </div>
+                        <div class="info-item"><strong>Data do Registro:</strong>
+                            {{#data_registro}}{{data_registro}}{{/data_registro}}{{^data_registro}}Não
+                            informado{{/data_registro}}</div>
+                        {{/usuarios}}
+                    </div>
+                </div>
+
+
+                <!-- Additional sections for clinical data, alterations, etc. -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Senac. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+ 
+
+ 
+
+ 
+ 

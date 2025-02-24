@@ -1,0 +1,467 @@
+{{>partials/header}}
+
+<style>
+        body {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+        }
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+        .page-title {
+            color: rgb(243, 243, 243);
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            background: linear-gradient(339deg, rgb(230, 155, 42) 25%, rgb(1, 75, 139) 45%);
+            border-radius: 8px;
+        }
+        .nail-type-card {
+            transition: transform 0.2s;
+            cursor: pointer;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            height: 80%;
+        }
+        
+        .nail-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .nail-type-card img {
+            max-width: 80px;
+            margin: 0 auto;
+        }
+        
+        .nail-type-card p {
+            margin-top: 1rem;
+            font-weight: 500;
+            color: #495057;
+        }
+        
+        .form-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .toe-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+          h4 {
+            color: black;
+            margin: 25px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #004a8f;
+        }
+         .section-title {
+            color: #004a8f;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .toe-section h3 {
+            color:white;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        h3{
+            background-color: rgb(1, 75, 139)
+            padding:20px;
+            border-radius:8px;
+            
+        }
+        
+        select.form-select {
+            margin-bottom: 1rem;
+        }
+        
+        .condition-card {
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .condition-card:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .condition-card input[type="checkbox"] {
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: rgb(1, 75, 139);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #003666;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/etapa5" id="form_etapa5" method="POST">
+            <div class="form-section">
+                 <div class="logo text-center">
+                    <img src="images/senac-logo-0-removebg-preview-removebg-preview.png" href="/" alt="Logo Senac" class="img-fluid">
+                </div>
+                
+                <p class="page-title">Ficha de Avaliação Podológica</p>
+                
+                <input type="hidden" id="id_cliente" name="id_cliente" value="{{id_cliente}}">
+                
+                <h4>Alterações e Lesões Pés</h4>
+                
+                <p class="section-title">Tipos de Unhas</p>
+                <div class="row g-4 mb-5">
+                    <div class="col-md-3">
+                        <div class="nail-type-card text-center">
+                            <img src="/images/unha_caracol.png" alt="Unha Caracol" class="img-fluid">
+                            <p>Unha Caracol</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="nail-type-card text-center">
+                            <img src="/images/unha_cunha.png" alt="Unha Cunha" class="img-fluid">
+                            <p>Unha Cunha</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="nail-type-card text-center">
+                            <img src="/images/unha_funil.png" alt="Unha Funil" class="img-fluid">
+                            <p>Unha Funil</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="nail-type-card text-center">
+                            <img src="/images/unha_gancho.png" alt="Unha Gancho" class="img-fluid">
+                            <p>Unha Gancho</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="nail-type-card text-center">
+                            <img src="/images/unha_involuta.png" alt="Unha Involuta" class="img-fluid">
+                            <p>Unha Involuta</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="nail-type-card text-center">
+                            <img src="/images/unha_normal.png" alt="Unha Normal" class="img-fluid">
+                            <p>Unha Normal</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="nail-type-card text-center">
+                            <img src="/images/unha_telha.png" alt="Unha Telha" class="img-fluid">
+                            <p>Unha Telha</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="nail-type-card text-center">
+                            <img src="/images/unha_torques.png" alt="Unha Torques" class="img-fluid">
+                            <p>Unha Torques</p>
+                        </div>
+                    </div>
+                </div>
+            
+<hr>
+    
+                <p class="section-title mt-2">Artelhos</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <div class="toe-section">
+                            <h3 class="text-center">Pé Direito (PD)</h3>
+                            <div class="mb-3">
+                                <label class="form-label">Hálux</label>
+                                <select class="form-select" name="PD_halux" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Involuta">Involuta</option>
+                                    <option value="Telha">Telha</option>
+                                    <option value="Funil">Funil</option>
+                                    <option value="Gancho">Gancho</option>
+                                    <option value="Torquês">Torquês</option>
+                                    <option value="Caracol">Caracol</option>
+                                    <option value="Cunha">Cunha</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">2°</label>
+                                <select class="form-select" name="PD_2" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Involuta">Involuta</option>
+                                    <option value="Telha">Telha</option>
+                                    <option value="Funil">Funil</option>
+                                    <option value="Gancho">Gancho</option>
+                                    <option value="Torquês">Torquês</option>
+                                    <option value="Caracol">Caracol</option>
+                                    <option value="Cunha">Cunha</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">3°</label>
+                                <select class="form-select" name="PD_3" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Involuta">Involuta</option>
+                                    <option value="Telha">Telha</option>
+                                    <option value="Funil">Funil</option>
+                                    <option value="Gancho">Gancho</option>
+                                    <option value="Torquês">Torquês</option>
+                                    <option value="Caracol">Caracol</option>
+                                    <option value="Cunha">Cunha</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">4°</label>
+                                <select class="form-select" name="PD_4" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Involuta">Involuta</option>
+                                    <option value="Telha">Telha</option>
+                                    <option value="Funil">Funil</option>
+                                    <option value="Gancho">Gancho</option>
+                                    <option value="Torquês">Torquês</option>
+                                    <option value="Caracol">Caracol</option>
+                                    <option value="Cunha">Cunha</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">5°</label>
+                                <select class="form-select" name="PD_5" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Involuta">Involuta</option>
+                                    <option value="Telha">Telha</option>
+                                    <option value="Funil">Funil</option>
+                                    <option value="Gancho">Gancho</option>
+                                    <option value="Torquês">Torquês</option>
+                                    <option value="Caracol">Caracol</option>
+                                    <option value="Cunha">Cunha</option>
+                                </select>
+                            </div>
+                            <!-- Repeat for other toes -->
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-5">
+                        <div class="toe-section">
+                            <h3 class="text-center">Pé Esquerdo (PE)</h3>
+                            <div class="mb-3">
+                                <label class="form-label">Hálux</label>
+                                <select class="form-select" name="PE_halux" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Involuta">Involuta</option>
+                                    <option value="Telha">Telha</option>
+                                    <option value="Funil">Funil</option>
+                                    <option value="Gancho">Gancho</option>
+                                    <option value="Torquês">Torquês</option>
+                                    <option value="Caracol">Caracol</option>
+                                    <option value="Cunha">Cunha</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">2°</label>
+                                <select class="form-select" name="PE_2" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Involuta">Involuta</option>
+                                    <option value="Telha">Telha</option>
+                                    <option value="Funil">Funil</option>
+                                    <option value="Gancho">Gancho</option>
+                                    <option value="Torquês">Torquês</option>
+                                    <option value="Caracol">Caracol</option>
+                                    <option value="Cunha">Cunha</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">3°</label>
+                                <select class="form-select" name="PE_3" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Involuta">Involuta</option>
+                                    <option value="Telha">Telha</option>
+                                    <option value="Funil">Funil</option>
+                                    <option value="Gancho">Gancho</option>
+                                    <option value="Torquês">Torquês</option>
+                                    <option value="Caracol">Caracol</option>
+                                    <option value="Cunha">Cunha</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">4°</label>
+                                <select class="form-select" name="PE_4" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Involuta">Involuta</option>
+                                    <option value="Telha">Telha</option>
+                                    <option value="Funil">Funil</option>
+                                    <option value="Gancho">Gancho</option>
+                                    <option value="Torquês">Torquês</option>
+                                    <option value="Caracol">Caracol</option>
+                                    <option value="Cunha">Cunha</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">5°</label>
+                                <select class="form-select" name="PE_5" required>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Involuta">Involuta</option>
+                                    <option value="Telha">Telha</option>
+                                    <option value="Funil">Funil</option>
+                                    <option value="Gancho">Gancho</option>
+                                    <option value="Torquês">Torquês</option>
+                                    <option value="Caracol">Caracol</option>
+                                    <option value="Cunha">Cunha</option>
+                                </select>
+                            </div>
+                            <!-- Repeat for other toes -->
+                        </div>
+                    </div>
+                </div>
+            
+
+            <hr>
+                <p class="section-title mt-2">Alterações Ungueais</p>
+                
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="condition-card border rounded p-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Onicoatrofia" name="Onicoatrofia" value="true">
+                                <label class="form-check-label" for="Onicoatrofia">
+                                    Onicoatrofia
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="condition-card border rounded p-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Onicocriptose" name="Onicocriptose" value="true">
+                                <label class="form-check-label" for="Onicocriptose">
+                                    Onicocriptose
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="condition-card border rounded p-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Onicorrexe" name="Onicorrexe" value="true">
+                                <label class="form-check-label" for="Onicorrexe">
+                                    Onicorrexe
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="condition-card border rounded p-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Granuloma" name="Granuloma" value="true">
+                                <label class="form-check-label" for="Granuloma">
+                                    Granuloma
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="condition-card border rounded p-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Onicogrifose" name="Onicogrifose" value="true">
+                                <label class="form-check-label" for="Onicogrifose">
+                                    Onicogrifose
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="condition-card border rounded p-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Onicolise" name="Onicolise" value="true">
+                                <label class="form-check-label" for="Onicolise">
+                                    Onicolise
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="condition-card border rounded p-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Onicofose" name="Onicofose" value="true">
+                                <label class="form-check-label" for="Onicofose">
+                                    Onicofose
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="condition-card border rounded p-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Psoriase_ungueal" name="Psoriase_ungueal" value="true">
+                                <label class="form-check-label" for="Psoriase_ungueal">
+                                    Psoriase Ungueal
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="condition-card border rounded p-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Onicomicose" name="Onicomicose" value="true">
+                                <label class="form-check-label" for="Onicomicose">
+                                    Onicomicose
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for other conditions -->
+                </div>
+
+                <div class="mt-4">
+                    <label for="outras_alteracoes" class="form-label">Outras alterações ungueais</label>
+                    <textarea class="form-control" id="outras_alteracoes" name="outras_alteracoes" rows="3" 
+                        placeholder="Descreva outras alterações observadas..."></textarea>
+                </div>
+            
+            
+
+            <div class="d-flex justify-content-between mt-5">
+                <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                    <i class="bi bi-arrow-left me-2"></i>Voltar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Próximo<i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+            </div>
+        </form>
+    </div>
+
+{{>partials/footer}}
